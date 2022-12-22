@@ -1,0 +1,365 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Liberation Serif";}
+@font-face
+	{font-family:"Liberation Sans";}
+@font-face
+	{font-family:"DejaVu Sans";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Source Han Sans CN";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Droid Sans Devanagari";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:56.7pt 42.5pt 56.7pt 85.05pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+<h1>
+<p class=MsoNormal><span lang=RU style='font-size:20.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Задача E*. Разрез. Курс UgraCTF. Автор:
+Шаталов Вадим</span></p></h1>
+
+<p class=MsoNormal><span lang=RU><img width=389 height=214 id="Рисунок 1"
+src="Write_up_Stego_files/image001.png"></span></p>
+
+<p class=MsoNormal>task.png</p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>При скачивании получаем такое изображение.
+</span></p>
+
+<p class=MsoNormal><span lang=RU><img width=623 height=487 id="Рисунок 2"
+src="Write_up_Stego_files/image002.png"></span></p>
+
+<p class=MsoNormal>phototask.png</p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Если поискать это изображение, то можем
+найти его оригинальную версию.</span></p>
+
+<p class=MsoNormal><span lang=RU><img width=624 height=307 id="Рисунок 4"
+src="Write_up_Stego_files/image003.png"></span></p>
+
+<p class=MsoNormal>searchphoto.png</p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Можно предположить, что изображение было
+обрезано, но скорее всего не привычным для нас методом, а через «код»
+изображения. Попробуем расширить эту картинку через изменение его «кода». </span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Сначала немного матчасти. Нам надо
+изучить, как устроен .</span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>png</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>. Для этого
+обратимся на статью в </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>habr</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>’е – </span><span
+lang=RU><a href="https://habr.com/ru/post/130472/"><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>https://habr.com/ru/post/130472/</span></a></span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>У нас есть подпись </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>PNG</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>-файлов,
+которая всегда одинакова, состоит из 8 байт, и представляет собой (в
+hex-записи) 89 50 4E 47 0D 0A 1A 0A </span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Посмотрим на наше изображение через </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>hex</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>-редактор,
+в моём случае это </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>wxHexEditor</span><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>.</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=552 height=396
+id="Рисунок 5" src="Write_up_Stego_files/image004.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>orighex.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Да, такой у нас имеется, двигаемся дальше.
+После подписи (сигнатуры) следуют чанки. Чанки — это блоки данных, из которых
+состоит файл. Каждый чанк состоит из 4 секций: длина, тип (имя) чанка, его
+содержание и </span><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>CRC</span><span lang=RU style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>-32 (контрольная сумма
+чанка). Нам нужен чанк с основной информацией об изображении – </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>IHDR</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>,
+он обязательно идёт первым после сигнатуры.</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Блок данных в </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>IHDR</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+содержит следующие поля:</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Ширина, 4 байта</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Высота, 4 байта</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Битовая глубина (</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>bit</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'> </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>depth</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>),
+определяет количество бит на каждый сэмпл (не пиксель), 1 байт</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Тип цвета, состоит из 3 флагов 1
+(используется палитра), 2 (используется цвет, не монохромное изображение), </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>and</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+4 (присутствует альфа-канал), 1 байт</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Метод сжатия. На данный момент доступно
+только значение 0 — сжатие по алгоритму </span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>deflate</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>.
+Если значение отлично от 0, чанк считается нераспознанным, и декодер рапортует
+об ошибке. 1 байт</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Метод фильтрации. Так же, как и в случае
+сжатия, на данный момент может быть только нулем. 1 байт</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Interlace</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>(переплетение)
+метод. Определяет порядок передачи данных. На данный момент доступно 2
+значения: 0 (</span><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>no</span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> </span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>interlace</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>)
+и 1 (</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Adam</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>7
+</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>interlace</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>).
+</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>1
+байт</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>И так, план действий: находим высоту в
+чанке, изменяем на большее значение, считаем контрольную сумму, изменяем
+контрольную сумму в чанке, открываем расширенное изображение – «Вы великолепны!»</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=624 height=448
+id="Рисунок 6" src="Write_up_Stego_files/image005.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>chunk.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>И так приступим.  Полностью наш чанк
+выглядит так: 00 00 00 0</span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>D</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'> 49 48 44 52 00 00
+02 80 00 00 01 </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>F</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>4 08 02 00 00 00
+22 </span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>F</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>4
+0</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>B</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+3</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>E</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>.
+После сигнатуры у нас идёт 4 байта, которые определяют длину содержания чанка.
+Значение нашей длины 00 00 00 0</span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>D</span><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>,
+следовательно 13, переводя из </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>hex</span><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>.
+Далее название чанка в </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>hex</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'> – 49 48 44 52 (</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>IHDR</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>),
+после уже интересующая нас информация. Сначала идёт ширина, потом высота,
+каждый блок по 4 байта, следовательно, высота имеет значение 00 00 01 </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>F</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>4.
+Это будет 500 в десятеричной системе исчисления. Увеличим до 850 – 352 в </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>hex</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>,
+то есть 03 52, если делить по байтам. Заменяем на 00 00 03 52. Наш чанк теперь
+имеет значение 00 00 00 0</span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>D</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'> 49 48 44 52 00 00
+02 80 00 00 02 52 08 02 00 00 00 22 </span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>F</span><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>4
+0</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>B</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+3</span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>E</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>.
+Осталось только пересчитать чек-сумму, иначе фото не откроется. А считается она
+по блокам «Тип (имя) чанка» и «Содержание чанка». То есть по 49 48 44 52 00 00
+02 80 00 00 01 </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>F</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>4 08 02 00 00 00
+считалась изначальная чек-сумма. Давайте проверим себя. Для этого понадобится
+любой онлайн калькулятор </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>CRC</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>-32. Я
+воспользуюсь </span><span lang=RU><a href="https://crccalc.com/"><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>https://crccalc.com</span></a></span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+</span><span lang=RU><img border=0 width=623 height=198 id="Рисунок 10"
+src="Write_up_Stego_files/image006.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>crcorig.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Вставляем наш </span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>hex</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+и получаем ту же самую чек-сумму, что и в изначальном файле. Тогда посчитаем с
+нашей новой высотой. </span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=624 height=197
+id="Рисунок 11" src="Write_up_Stego_files/image007.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>ourcrc.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Получаем 7A2EE8E4. Заменяем на новое
+значение в редакторе хекса. </span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=623 height=64
+id="Рисунок 12" src="Write_up_Stego_files/image008.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>solvedchunk.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Сохраняем наш изменённый файл. Открываем и
+видим наш флаг!</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=623 height=829
+id="Рисунок 13" src="Write_up_Stego_files/image009.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>solvedphoto.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

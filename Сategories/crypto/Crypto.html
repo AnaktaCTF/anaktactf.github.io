@@ -1,0 +1,1224 @@
+<html>
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta name=Generator content="Microsoft Word 15 (filtered)">
+    <style>
+        <!--
+        /* Font Definitions */
+        @font-face {
+            font-family: Wingdings;
+            panose-1: 5 0 0 0 0 0 0 0 0 0;
+        }
+
+        @font-face {
+            font-family: Mangal;
+            panose-1: 2 4 5 3 5 2 3 3 2 2;
+        }
+
+        @font-face {
+            font-family: "Cambria Math";
+            panose-1: 2 4 5 3 5 4 6 3 2 4;
+        }
+
+        @font-face {
+            font-family: Calibri;
+            panose-1: 2 15 5 2 2 2 4 3 2 4;
+        }
+
+        @font-face {
+            font-family: "Liberation Sans";
+        }
+
+        @font-face {
+            font-family: "Source Han Sans CN";
+            panose-1: 0 0 0 0 0 0 0 0 0 0;
+        }
+
+        @font-face {
+            font-family: "Droid Sans Devanagari";
+            panose-1: 0 0 0 0 0 0 0 0 0 0;
+        }
+
+        /* Style Definitions */
+        p.MsoNormal,
+        li.MsoNormal,
+        div.MsoNormal {
+            margin: 0in;
+            text-indent: 35.45pt;
+            line-height: 150%;
+            font-size: 14.0pt;
+            font-family: "Times New Roman", serif;
+        }
+
+        p.MsoCaption,
+        li.MsoCaption,
+        div.MsoCaption {
+            margin-top: 0in;
+            margin-right: 0in;
+            margin-bottom: 10.0pt;
+            margin-left: 0in;
+            text-indent: 35.45pt;
+            font-size: 9.0pt;
+            font-family: "Times New Roman", serif;
+            color: #44546A;
+            font-style: italic;
+        }
+
+        p.MsoBodyText,
+        li.MsoBodyText,
+        div.MsoBodyText {
+            margin-top: 0in;
+            margin-right: 0in;
+            margin-bottom: 7.0pt;
+            margin-left: 0in;
+            text-indent: 35.45pt;
+            line-height: 115%;
+            font-size: 14.0pt;
+            font-family: "Times New Roman", serif;
+        }
+
+        a:link,
+        span.MsoHyperlink {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        p {
+            margin-right: 0in;
+            margin-left: 0in;
+            text-indent: 35.45pt;
+            font-size: 12.0pt;
+            font-family: "Times New Roman", serif;
+        }
+
+        .MsoChpDefault {
+            font-size: 14.0pt;
+        }
+
+        @page WordSection1 {
+            size: 595.3pt 841.9pt;
+            margin: 56.7pt 42.5pt 56.7pt 85.05pt;
+        }
+
+        div.WordSection1 {
+            page: WordSection1;
+        }
+
+        /* List Definitions */
+        ol {
+            margin-bottom: 0in;
+        }
+
+        ul {
+            margin-bottom: 0in;
+        }
+        -->
+    </style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#954F72" style='word-wrap:break-word'>
+
+    <div class=WordSection1>
+        <h1>
+            <p class=MsoNormal style='font-size:20.0pt;
+font-family:"Times New Roman",serif;text-indent:0in'><span lang=RU> Категория
+                    Crypto</span></p>
+        </h1>
+        <h2>
+        <p class=MsoNormal><span lang=RU>Что это такое? Автор: Кочева Елизавета
+               </span></p></h2>
+
+        <p class=MsoNormal><span lang=RU>Криптография — наука о методах обеспечения
+                конфиденциальности (невозможности прочтения информации посторонним),
+                целостности данных (невозможности незаметного изменения информации),
+                аутентификации (проверки подлинности авторства или иных свойств объекта), а
+                также невозможности отказа от авторства.</span></p>
+
+        <p class=MsoNormal><span lang=RU>Криптография изучает методы шифрования
+                информации, например, обратимого преобразования исходного текста на основе
+                секретного алгоритма или ключа в шифрованный текст (шифр-текст). Традиционная
+                криптография образует раздел симметричных криптосистем, в которых зашифрование
+                и расшифрование проводится с использованием одного и того же секретного ключа.
+                Помимо этого раздела современная криптография включает в себя асимметричные
+                криптосистемы, системы электронной цифровой подписи, хеш-функции, управление
+                ключами, получение скрытой информации, квантовую криптографию.</span></p>
+
+        <p class=MsoNormal><span lang=RU>Думаю, пора рассмотреть парочку простых и
+                стандартных, но от того не менее интересных шифра.</span></p>
+
+        <p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+        <p class=MsoNormal align=center style='text-align:center'><b><span lang=RU>Шифр
+                    Цезаря</span></b></p>
+
+        <p class=MsoNormal><span lang=RU>Построен по принципу <i>сдвига</i>: каждый
+                символ в открытом тексте заменяется символом, находящимся на некотором
+                постоянном числе позиций левее или правее него в алфавите. Число позиций
+                определяется ключом.</span></p>
+
+        <p class=MsoNormal align=center style='text-align:center;text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=507 height=213 id="Рисунок 1"
+                    src="Crypto_files/image001.png"></span></p>
+
+
+        <p class=MsoNormal style='text-indent:0in'><span lang=RU>В данном примере сдвиг
+                равен 3. Первый элемент алфавита </span>A<span lang=RU> заменяется на четвёртый
+                элемент </span>D<span lang=RU>.</span></p>
+
+        <p class=MsoNormal style='text-indent:0in'><span lang=RU>Попробуем зашифровать
+                свою фразу «<i>У страха глаза велики</i>». Ключ зададим 9.</span></p>
+
+        <p class=MsoNormal style='text-indent:0in'>X<span lang=RU> – исходный текст
+                (алфавит), </span>Y<span lang=RU> – зашифрованный, </span>i<span lang=RU> –
+                нумерация символов.</span></p>
+
+        <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=623
+            style='border-collapse:collapse;border:none'>
+            <tr>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>X</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>А</span></p>
+                </td>
+                <td width=36 valign=top style='width:27.35pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Б</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>В</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Г</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Д</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Е</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ж</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>З</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>И</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Й</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>К</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Л</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>М</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Н</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>О</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>П</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>Y</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Й</span></p>
+                </td>
+                <td width=36 valign=top style='width:27.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>К</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Л</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>М</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Н</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>О</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>П</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Р</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>С</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Т</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>У</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ф</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Х</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ц</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ч</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ш</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>i</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>1</p>
+                </td>
+                <td width=36 valign=top style='width:27.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>2</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>3</p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>4</p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>5</p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>6</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>7</p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>8</p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>9</p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>10</p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>11</p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>12</p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>13</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>14</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>15</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>16</p>
+                </td>
+            </tr>
+        </table>
+
+        <p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+        <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=623
+            style='border-collapse:collapse;border:none'>
+            <tr>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>X</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Р</span></p>
+                </td>
+                <td width=36 valign=top style='width:27.35pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>С</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Т</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>У</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ф</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Х</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ц</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ч</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ш</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Щ</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ъ</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ы</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ь</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Э</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ю</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Я</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>Y</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Щ</span></p>
+                </td>
+                <td width=36 valign=top style='width:27.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ъ</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ы</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ь</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Э</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ю</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Я</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>А</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Б</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>В</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Г</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Д</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Е</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>Ж</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>З</span></p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>И</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=37 valign=top style='width:27.45pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>i</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>1</p>
+                </td>
+                <td width=36 valign=top style='width:27.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>2</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>3</p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>4</p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>5</p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>6</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>7</p>
+                </td>
+                <td width=37 valign=top style='width:27.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>8</p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>9</p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>10</p>
+                </td>
+                <td width=37 valign=top style='width:27.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>11</p>
+                </td>
+                <td width=37 valign=top style='width:27.6pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>12</p>
+                </td>
+                <td width=37 valign=top style='width:27.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>13</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>14</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>15</p>
+                </td>
+                <td width=37 valign=top style='width:27.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+                    <p class=MsoNormal style='text-indent:0in;line-height:normal'>16</p>
+                </td>
+            </tr>
+        </table>
+
+        <p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+        <p class=MsoNormal><span lang=RU>Таким образом, наша фраза становится такой «<i>Ь
+                    ъыщиюи лфири кнфсус</i>».</span></p>
+
+        <p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+        <p class=MsoNormal align=center style='text-align:center;text-indent:0in'><b><span lang=RU>Шифр
+                    Виженера</span></b></p>
+
+        <p class=MsoNormal><span lang=RU>Метод полиалфавитного шифрования буквенного
+                текста с использованием ключевого слова.</span></p>
+
+        <p class=MsoNormal align=center style='text-align:center'><span lang=RU>Принцип
+                шифрования.</span></p>
+
+        <p class=MsoNormal><span lang=RU>Принцип рассмотрим на конкретном примере.
+                Попробуем зашифровать слово «<i>Виженер</i>». Нам нужно задать ключевое слово,
+                например, «лимон». Далее смотрим на пересечение первой буквы исходного слова
+                (по строке) и первой буквы ключа (по столбцу): <b>в</b> и <b>л</b>. Получаем
+                букву <b>н</b>. Идём дальше.</span></p>
+
+        <p class=MsoNormal><b><span lang=RU>и</span></b><span lang=RU> и <b>и </b>=<b>
+                    р</b>.</span></p>
+
+        <p class=MsoNormal><span lang=RU>И так со всем словом.<br>
+                Когда количество букв в ключе закончилось, зацикливаем его, пока не зашифруем
+                весь текст.</span></p>
+
+        <p class=MsoNormal><span lang=RU>Получаем зашифрованное «<i>нртуърш»</i>.</span></p>
+
+        <p class=MsoNormal style='text-indent:0in;page-break-after:avoid'><span lang=RU><img width=624 height=540
+                    id="Рисунок 3" src="Crypto_files/image002.png"></span>
+        </p>
+
+        <p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+        <p class=MsoNormal>Криптография, криптосистемы, ключи и алгоритмы. Автор:
+            Огурцова Карина (заголовок)</p>
+
+        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+150%'>Хотелось бы немного поговорить про криптографию в целом, рассмотреть
+                основные понятия и алгоритмы. </span></p>
+
+        <p style='text-align:justify;line-height:150%;background:white'><strong><span lang=RU style='font-size:14.0pt;line-height:150%;color:#333333;letter-spacing:
+.1pt'>Криптография</span></strong><span lang=RU style='font-size:14.0pt;
+line-height:150%;color:#333333;letter-spacing:.1pt'>&nbsp;— наука о методах
+                обеспечения&nbsp;<em>конфиденциальности</em>&nbsp;(невозможности прочтения
+                информации посторонним),&nbsp;<em>целостности данных</em>&nbsp;(невозможности
+                незаметного изменения информации),&nbsp;<em>аутентификации</em>&nbsp;(проверки
+                подлинности авторства или иных свойств объекта), а также&nbsp;<em>невозможности
+                    отказа от авторства</em>.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><span lang=RU
+                    style='line-height:150%;color:black'>Криптосистемы</span></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Криптосистема работает по определенной
+                методологии (процедуре). Она состоит из: одного или более алгоритмов шифрования
+                (математических формул); ключей, используемых этими алгоритмами шифрования;
+                системы управления ключами; незашифрованного текста; и зашифрованного текста
+                (шифртекста).</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU style='color:black'><img width=541
+                    height=146 id=Image1 src="Crypto_files/image003.jpg"
+                    alt=" "></span></p>
+
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Согласно методологии сначала к тексту
+                применяются алгоритм шифрования и ключ для получения из него шифртекста. Затем
+                шифртекст передается к месту назначения, где тот же самый алгоритм используется
+                для его расшифровки, чтобы получить снова текст. Также в методологию входят
+                процедуры создания ключей и их распространения.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><span lang=RU
+                    style='line-height:150%;color:black'>Методология с использованием ключа</span></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>В этой методологии алгоритм шифрования
+                объединяет ключ с текстом для создания шифртекста. Безопасность систем
+                шифрования такого типа зависит от конфиденциальности ключа, используемого в алгоритме
+                шифрования, а не от хранения в тайне самого алгоритма.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Основная проблема, связанная с этой
+                методологией, состоит в том, как сгенерировать и безопасно передать ключи
+                участникам взаимодействия. Существуют две методологии с использованием ключей -
+                симметричная (с секретным ключом) и асимметричная (с открытым ключом). Каждая
+                методология использует свои собственные процедуры, свои способы распределения
+                ключей, типы ключей и алгоритмы шифрования и расшифровки ключей. Так как
+                терминология, используемая этими методологиями, может показаться непонятной,
+                дадим определения основным терминам:</span></p>
+
+        <div align=center>
+
+            <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=636 style='border-collapse:collapse'>
+                <tr>
+                    <td width=147 valign=top style='width:110.6pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify;text-indent:7.1pt'><b><span lang=RU
+                                    style='line-height:150%'>Термин</span></b></p>
+                    </td>
+                    <td width=339 valign=top style='width:254.2pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify;text-indent:3.55pt'><b><span lang=RU
+                                    style='line-height:150%;color:black'>Значение</span></b></p>
+                    </td>
+                    <td width=149 valign=top style='width:111.95pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-indent:4.5pt'><b><span lang=RU
+                                    style='line-height:150%;color:black'>Замечания</span></b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=147 valign=top style='width:110.6pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Симметричная методология</span></p>
+                    </td>
+                    <td width=339 valign=top style='width:254.2pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Используется один ключ, с помощью которого производится как
+                                шифрование, так и расшифровка с использованием одного и того же алгоритма
+                                симметричного шифрования.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Этот ключ передается двум участникам взаимодействия
+                                безопасным образом до передачи зашифрованных данных.</span></p>
+                    </td>
+                    <td width=149 valign=top style='width:111.95pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Часто называется методологией с секретным ключом.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=147 valign=top style='width:110.6pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Асимметричная методология</span></p>
+                    </td>
+                    <td width=339 valign=top style='width:254.2pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Использует алгоритмы симметричного шифрования и
+                                симметричные ключи для шифрования данных</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Использует алгоритмы асимметричного шифрования и
+                                асимметричные ключи для шифрования симметричного ключа. Создаются два
+                                взаимосвязанных асимметричных ключа. Симметричный ключ, зашифрованный с
+                                использованием одного асимметричного ключа и алгоритма асимметричного
+                                шифрования, должен расшифровываться с использованием другого ключа и того же
+                                алгоритма шифрования.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Создаются два взаимосвязанных асимметричных ключа. Один
+                                должен быть безопасно передан его владельцу, а другой - тому лицу, которое
+                                отвечает за хранение этих ключей (CA - сертификационному центру ключей), до
+                                начала их использования.</span></p>
+                    </td>
+                    <td width=149 valign=top style='width:111.95pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Часто называется методологией с открытым ключом</span></p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><span lang=RU
+                    style='line-height:150%;color:black'>Распространение ключей</span></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Ясно, что в обоих криптосистемах нужно
+                решать проблему распространения ключей.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>В симметричных методологиях эта проблема
+                стоит более остро, и поэтому в них ясно определяется, как передавать ключи
+                между участниками взаимодействия до начала взаимодействия. Конкретный способ
+                выполнения этого зависит от требуемого уровня безопасности. Если не требуется
+                высокий уровень безопасности, то ключи можно рассылать с помощью некоторого
+                механизма доставки. Банки, например, используют почту для рассылки PIN-кодов.
+                Для обеспечения более высокого уровня безопасности более уместна ручная
+                доставка ключей ответственными за это людьми, возможно по частям несколькими
+                людьми.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Асимметричные методологии пытаются обойти
+                эту проблему с помощью шифрования симметричного ключа и присоединения его в
+                таком виде к зашифрованным данным. А для распространения открытых асимметричных
+                ключей, используемых для шифрования симметричного ключа, в них используются
+                центры сертификации ключей. CA, в свою очередь, подписывают эти открытые ключи
+                с помощью секретного асимметричного ключа CA. Пользователи такой системы должны
+                иметь копию открытого ключа CA. Теоретически это означает, что участникам
+                взаимодействия не нужно знать ключей друг друга до организации безопасного
+                взаимодействия.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><span lang=RU
+                    style='line-height:150%;color:black'>Алгоритмы шифрования</span></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Алгоритмы шифрования с использованием
+                ключей предполагают, что данные не сможет прочитать никто, кто не обладает
+                ключом для их расшифровки. Они могут быть разделены на два класса, в
+                зависимости от того, какая методология криптосистем напрямую поддерживается ими.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><span lang=RU
+                    style='line-height:150%;color:black'>Симметричные алгоритмы</span></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Для шифрования и расшифровки используются
+                одни и те же алгоритмы. Один и тот же секретный ключ используется для
+                шифрования и расшифровки. Этот тип алгоритмов используется как симметричными,
+                так и асимметричными криптосистемами.</span></p>
+
+        <div align=center>
+
+            <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=636 style='border-collapse:collapse'>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><b><span lang=RU style='line-height:150%'>Т<span
+                                        style='color:black'>ип</span></span></b></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><b><span lang=RU
+                                    style='line-height:150%;color:black'>Описание</span></b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>DES (Data Encryption<br>
+                                Standard)</span></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Популярный алгоритм шифрования, используемый как стандарт
+                                шифрования данных правительством США.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Шифруется блок из 64 бит, используется 64-битовый ключ
+                                (требуется только 56 бит), 16 проходов</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>IDEA (международный<br>
+                                алгоритм шифрования)</span></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>64-битный блочный шифратор, 128-битовый ключ, 8 проходов</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Предложен недавно; хотя до сих пор не прошел полной
+                                проверки, чтобы считаться надежным, считается более лучшим, чем DES</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>RC2</span></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>64-битный блочный шифратор, ключ переменного размера</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Приблизительно в 2 раза быстрее, чем DES</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Конфиденциальный алгоритм, владельцем которого является RSA
+                                Data Security</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>RC4</span></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Потоковый шифр, байт-ориентированный, с ключом переменного
+                                размера.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Приблизительно в 10 раз быстрее DES.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Конфиденциальный алгоритм, которым владеет RSA Data
+                                Security</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Blowfish.</span></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>64-битный блочный шифратор, ключ переменного размера до 448
+                                бит, 16 проходов, на каждом проходе выполняются перестановки, зависящие от
+                                ключа, и подстановки, зависящие от ключа и данных.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Быстрее, чем DES</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Разработан для 32-битных машин</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=158 valign=top style='width:118.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Поточные шифры</span></p>
+                    </td>
+                    <td width=477 valign=top style='width:357.85pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Быстрые алгоритмы симметричного шифрования, обычно
+                                оперирующие битами (а не блоками бит).</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Разработаны как аналог устройства с одноразовыми ключами, и
+                                хотя не являются такими же безопасными, как оно, по крайней мере практичны.</span></p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><span lang=RU
+                    style='line-height:150%;color:black'>2.3.2 Асимметричные алгоритмы</span></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Асимметричные алгоритмы используются в
+                асимметричных криптосистемах для шифрования симметричных сеансовых ключей.</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Используется два разных ключа - один
+                известен всем, а другой держится в тайне. Обычно для шифрования и расшифровки
+                используется оба этих ключа. Но данные, зашифрованные одним ключом, можно
+                расшифровать только с помощью другого ключа.</span></p>
+
+        <div align=center>
+
+            <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=636 style='border-collapse:collapse'>
+                <tr>
+                    <td width=147 valign=top style='width:110.5pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><b><span lang=RU
+                                    style='line-height:150%'>Тип</span></b></p>
+                    </td>
+                    <td width=488 valign=top style='width:366.2pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><b><span lang=RU
+                                    style='line-height:150%;color:black'>Описание</span></b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=147 valign=top style='width:110.5pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>RSA</span></p>
+                    </td>
+                    <td width=488 valign=top style='width:366.2pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Популярный алгоритм асимметричного шифрования, стойкость
+                                которого зависит от сложности факторизации больших целых чисел.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=147 valign=top style='width:110.5pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>ECC (криптосистема<br>
+                                на основе<br>
+                                эллиптических кривых)</span></p>
+                    </td>
+                    <td width=488 valign=top style='width:366.2pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Использует алгебраическую систему, которая описывается в
+                                терминах точек эллиптических кривых, для реализации асимметричного алгоритма
+                                шифрования.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Современные его реализации показывают, что эта система
+                                гораздо более эффективна, чем другие системы с открытыми ключами. Его
+                                производительность приблизительно на порядок выше, чем производительность
+                                RSA, Диффи-Хеллмана и DSA.</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=147 valign=top style='width:110.5pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Эль-Гамаль.</span></p>
+                    </td>
+                    <td width=488 valign=top style='width:366.2pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Вариант Диффи-Хеллмана, который может быть использован как
+                                для шифрования, так и для электронной подписи.</span></p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><b><i><span lang=RU
+                        style='line-height:150%;color:black'>2.4 Хэш-функции</span></i></b></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:black'>Хэш-функции являются одним из важных
+                элементов криптосистем на основе ключей. Их относительно легко вычислить, но
+                почти невозможно расшифровать. Хэш-функция имеет исходные данные переменной
+                длины и возвращает строку фиксированного размера, обычно 128 бит. Хэш-функции
+                используются для обнаружения модификации сообщения.</span></p>
+
+        <div align=center>
+
+            <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=636 style='border-collapse:collapse'>
+                <tr>
+                    <td width=120 valign=top style='width:90.2pt;background:#BBBBBB;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><b><span lang=RU
+                                    style='line-height:150%'>Тип</span></b></p>
+                    </td>
+                    <td width=515 valign=top style='width:386.5pt;background:#BBBBBB;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><b><span lang=RU
+                                    style='line-height:150%;color:black'>Описание</span></b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=120 valign=top style='width:90.2pt;background:#EEEEEE;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>MD4</span></p>
+                    </td>
+                    <td width=515 valign=top style='width:386.5pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Самая быстрая, оптимизирована для 32-битных машин</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Не так давно взломана</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=120 valign=top style='width:90.2pt;background:#EEEEEE;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>MD5</span></p>
+                    </td>
+                    <td width=515 valign=top style='width:386.5pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Наиболее распространенная из семейства MD-функций.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Похожа на MD4, но средства повышения безопасности делают ее
+                                на 33% медленнее, чем MD4</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Обеспечивает целостность данных</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Считается безопасной</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width=120 valign=top style='width:90.2pt;background:#EEEEEE;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>SHA (Secure<br>
+                                Hash Algorithm)</span></p>
+                    </td>
+                    <td width=515 valign=top style='width:386.5pt;background:#EEEEEE;padding:
+  3.0pt 3.0pt 3.0pt 3.0pt'>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Создает 160-битное значение хэш-функции из исходных данных
+                                переменного размера.</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Предложена NIST и принята правительством США как стандарт</span></p>
+                        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+  150%;color:black'>Предназначена для использования в стандарте DSS</span></p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <p class=MsoNormal style='text-align:justify'><span lang=RU style='line-height:
+150%'>&nbsp;</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:#333333;letter-spacing:.1pt'>&nbsp;</span></p>
+
+        <p class=MsoNormal style='text-align:justify;background:white'><span lang=RU
+                style='line-height:150%;color:#333333;letter-spacing:.1pt'>Инструменты, которые
+                могут используются в решении задач, связанных с криптографией.</span></p>
+
+        <p class=MsoNormal style='margin-left:0in;text-align:justify;background:white'><span lang=RU style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:#292929;
+letter-spacing:-.05pt'>·<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></span><span lang=RU style='color:black'><a
+                    href="https://www.unix-ag.uni-kl.de/~conrad/krypto/pkcrack.html" target="_blank"><span lang=EN-US
+                        style='line-height:150%;letter-spacing:-.05pt'>PkCrack</span></a></span><span
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>&nbsp;</span><span lang=RU
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>—
+                инструмент для взлома </span><span style='line-height:150%;color:#292929;
+letter-spacing:-.05pt'>PkZip</span><span lang=RU style='line-height:150%;
+color:#292929;letter-spacing:-.05pt'>-шифрования</span></p>
+
+        <p class=MsoNormal style='margin-left:0in;text-align:justify;background:white'><span lang=RU style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:#292929;
+letter-spacing:-.05pt'>·<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></span><span lang=RU style='color:black'><a href="https://github.com/Ganapati/RsaCtfTool"
+                    target="_blank"><span lang=EN-US
+                        style='line-height:150%;letter-spacing:-.05pt'>RSACTFTool</span></a></span><span
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>&nbsp;</span><span lang=RU
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>— инструмент
+                для восстановления закрытого ключа </span><span style='line-height:150%;
+color:#292929;letter-spacing:-.05pt'>RSA</span><span lang=RU style='line-height:
+150%;color:#292929;letter-spacing:-.05pt'> с помощью различных атак</span></p>
+
+        <p class=MsoNormal style='margin-left:0in;text-align:justify;background:white'><span lang=RU style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:#292929;
+letter-spacing:-.05pt'>·<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></span><span lang=RU style='color:black'><a href="https://github.com/ius/rsatool"
+                    target="_blank"><span lang=EN-US
+                        style='line-height:150%;letter-spacing:-.05pt'>RSATool</span></a></span><span
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>&nbsp;</span><span lang=RU
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>—
+                генерация закрытого ключ со знанием </span><span style='line-height:150%;
+color:#292929;letter-spacing:-.05pt'>p</span><span lang=RU style='line-height:
+150%;color:#292929;letter-spacing:-.05pt'> и </span><span style='line-height:
+150%;color:#292929;letter-spacing:-.05pt'>q</span></p>
+
+        <p class=MsoNormal style='margin-left:0in;text-align:justify;background:white'><span lang=RU style='font-size:10.0pt;line-height:150%;font-family:Symbol;color:#292929;
+letter-spacing:-.05pt'>·<span
+                    style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span></span><span lang=RU style='color:black'><a href="https://github.com/hellman/xortool"
+                    target="_blank"><span lang=EN-US
+                        style='line-height:150%;letter-spacing:-.05pt'>XORTool</span></a></span><span
+                style='line-height:150%;color:#292929;letter-spacing:-.05pt'>&nbsp;— инструмент
+                для анализа многобайтового xor-шифра</span></p>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1199 @@
+<html>
+
+<head>
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+	<meta name=Generator content="Microsoft Word 15 (filtered)">
+	<style>
+		<!--
+		/* Font Definitions */
+		@font-face {
+			font-family: "Cambria Math";
+			panose-1: 2 4 5 3 5 4 6 3 2 4;
+		}
+
+		/* Style Definitions */
+		p.MsoNormal,
+		li.MsoNormal,
+		div.MsoNormal {
+			margin: 0in;
+			line-height: 115%;
+			font-size: 11.0pt;
+			font-family: "Arial", sans-serif;
+		}
+
+		h1 {
+			margin-top: 20.0pt;
+			margin-right: 0in;
+			margin-bottom: 6.0pt;
+			margin-left: 0in;
+			line-height: 115%;
+			page-break-after: avoid;
+			font-size: 20.0pt;
+			font-family: "Arial", sans-serif;
+			font-weight: normal;
+		}
+
+		h2 {
+			margin-top: .25in;
+			margin-right: 0in;
+			margin-bottom: 6.0pt;
+			margin-left: 0in;
+			line-height: 115%;
+			page-break-after: avoid;
+			font-size: 16.0pt;
+			font-family: "Arial", sans-serif;
+			font-weight: normal;
+		}
+
+		h3 {
+			margin-top: 16.0pt;
+			margin-right: 0in;
+			margin-bottom: 4.0pt;
+			margin-left: 0in;
+			line-height: 115%;
+			page-break-after: avoid;
+			font-size: 14.0pt;
+			font-family: "Arial", sans-serif;
+			color: #434343;
+			font-weight: normal;
+		}
+
+		.MsoChpDefault {
+			font-family: "Arial", sans-serif;
+		}
+
+		.MsoPapDefault {
+			line-height: 115%;
+		}
+
+		/* Page Definitions */
+		@page WordSection1 {
+			size: 595.45pt 841.7pt;
+			margin: 1.0in 1.0in 1.0in 1.0in;
+		}
+
+		div.WordSection1 {
+			page: WordSection1;
+		}
+
+		/* List Definitions */
+		ol {
+			margin-bottom: 0in;
+		}
+
+		ul {
+			margin-bottom: 0in;
+		}
+		-->
+	</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+	<div class=WordSection1>
+
+
+
+		<h1 align=center style='text-align:center;text-indent:.5in'><a name="_qw71w5rd2mnx"></a><span lang=ru>Сетевые
+				инструменты разведки сервисов и
+				хостов</span></h1>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Одна из первейших задач при исследовании любой сети —
+				это сократить (иногда довольно большой) набор IP диапазонов до списка активных
+				или интересных хостов. Сканирование каждого порта каждого IP адреса медленно и
+				необязательно. Конечно же то, что делает хост интересным для исследования во
+				многом определяется целями сканирования. Сетевые администраторы возможно будут
+				заинтересованы только в хостах, на которых запущена определенная служба, в то
+				время как тем, кого интересует безопасность, будут интересны все устройства с
+				IP адресами. Задачи администраторов по обнаружению работающих хостов в сети
+				могут быть удовлетворены обычным ICMP пингом, людям же, которые тестируют
+				способность сети противостоять атакам извне, необходимо использовать
+				разнообразные наборы запросов с целью обхода брандмауэра.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<h2 align=center style='text-align:center'><a name="_7cydkf38lj71"></a><span lang=ru>Обнаружение хостов</span>
+		</h2>
+
+		<h3 style='text-indent:.5in'><a name="_yjoxapighdlr"></a><span lang=ru>Веб-сервисы</span></h3>
+
+		<p class=MsoNormal><b><span lang=ru style='font-size:14.0pt;line-height:115%'>          </span></b><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>Есть ряд специализированных
+				ресурсов, позволяющих производить осуществлять разведку OSINT без
+				непосредственного сканирования хоста. Можно выделить следующие преимущества
+				применения веб-сервисов:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Экономия
+				ресурсов на проведение сканирования. Ряд затратных с точки зрения времени и
+				ресурсов сканирований быстрее осуществить посредством веб-сервисов.</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Сокрытие
+				атакующего. Сканирование осуществляется веб-сервисом, поэтому сканируемый хост
+				будет получать пакеты не от машины атакующего, а от веб-сервиса.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Есть
+				ряд проверенных веб-сервисов, однако функционально они мало чем отличаются друг
+				от друга:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Shodan.io</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>zoomeye.org</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>spyse.com</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>и т.п.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Наиболее
+				популярным является веб-сервис Shodan, позволяющий просматривать информацию от
+				данных ISP до открытых TCP-портов, сервисов и их уязвимостей</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=269
+					id=image13.png src="Discovery1_files/image001.jpg"></span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Сервис сам совершает запросы к портам хоста. На
+				изображении ниже показан ответ серверу Shodan от заданного хоста по TCP порту
+				8080. Определяется статус порта(открыт/закрыт/фильтруется(?)), используемый
+				веб-сервер, ОС хоста.</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=269
+					id=image19.png src="Discovery1_files/image002.jpg"></span></p>
+
+		<h3 style='text-indent:.5in'><a name="_574tocthm0yn"></a><span lang=ru>Arping</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Arping интересен для использования в следующих
+				случаях:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>отправки
+				запросов ARP;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>ICMP на
+				указанный хост и отображения ответов.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Хост может определяться по имени хоста или IP-адресу.
+				Каждый запрос отправляется посекундно. ARP и ICMP являются частью интернет-протокола.
+				ARP используется для сопоставления IPv4-адреса с MAC-адресом, а ICMP
+				используется для отправки информации об ошибках на подключенные IP-адреса,
+				когда пакеты не доставляются и для других целей.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Arping может быть использован для определения доступных
+				хостов без формирования полноценного IP-пакета, добавления записей в
+				arp-таблицу сканируемого хоста.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Этим методом сканирования могут быть обнаружены только
+				компьютеры, находящиеся в одном широковещательном сегменте с хостом, с которого
+				выполняется сканирование. </span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=181
+					id=image18.png src="Discovery1_files/image003.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Посмотрим
+				применение инструмента</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Попробуем
+				совершить arp-запрос к адресу виртуальной машины</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=601 height=163
+					id=image10.png src="Discovery1_files/image004.png"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Увидим
+				arp-запросы в сети виртуальных машин</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=601 height=67
+					id=image20.png src="Discovery1_files/image005.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=153
+					id=image14.png src="Discovery1_files/image006.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>В
+				tcpdump на исследуемой машине видим трафик, характерный arp</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=601 height=108
+					id=image17.png src="Discovery1_files/image007.jpg"></span></p>
+
+		<h3 style='text-indent:.5in'><a name="_qiqot9r6ioh1"></a><span lang=ru>Nmap(опция
+				-sP)</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Nmap («Network Mapper») - это бесплатная утилита с
+				открытым исходным кодом для обнаружения сети и аудита безопасности. Многие
+				системные и сетевые администраторы также считают его полезным для таких задач,
+				как инвентаризация сети, управление расписаниями обновления служб и мониторинг
+				времени безотказной работы хоста или службы. Nmap использует необработанные
+				IP-пакеты по-новому, чтобы определить, какие хосты доступны в сети, какие
+				услуги (название и версия приложения) эти хосты предлагают, на базе каких
+				операционных систем (и версий ОС) они работают, какой тип фильтров пакетов /
+				брандмауэров используются и десятки других характеристик.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>В
+				его основу входит платформа реализации скриптов(NSE, Nmap Scripting Engine)
+				различного назначения, от определения подробностей работающих служб до
+				сканирования уязвимостей, что делает инструмент еще более универсальным.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>Благодаря
+				возможности формирования отсылаемых пакетов инструмент является невероятно
+				гибким решением для тестирования систем IPS/IDS.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          В
+				рамках обнаружение хостов используется опция -sP. Для каждого указанного хоста
+				из указанного диапазона формируется обычный ICMP-пакет с целью проверки его
+				доступности.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Преимуществом
+				перед обычным ping является возможность указать диапазон адресов.</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=105
+					id=image15.png src="Discovery1_files/image008.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=28
+					id=image3.png src="Discovery1_files/image009.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          !Если
+				действует активная система IDS/IPS, ICMP часто отбрасывается с целью скрыть
+				сетевую архитектуру. В данном случае определение работы хоста осуществляется с
+				помощью средств формирования настраиваемых TCP/UDP сегментов для преодоления
+				средств фильтрации трафика.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<h3 style='text-indent:.5in'><a name="_o1k4yf1kzm5d"></a><span lang=ru>HPing</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Обычные Ping программы для проверки сетевых соединений
+				используют запросы ICMP и ожидают ответа. Программа hping позволяет вам
+				выполнять такое же тестирование, используя IP-пакеты, включая ICMP, UDP, и TCP.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Hping в своих возможностях аналогичен Netcat:
+				предоставлять контроль над сетевыми протоколами на низком уровне. Но тогда, как
+				Netcat сосредоточен на сетевых соединениях, hping направлен на анализ
+				заголовков протоколов. Он позволяет создавать TCP, UDP, ICMP, raw IP и другие
+				протоколы, которые вам захочется. Программа позволяет манипулировать
+				заголовками, полями, флагами и параметрами. Создавать отдельные пакеты,
+				посылать их в сеть, и анализировать полученный ответ.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Вот основные особенности утилиты hping:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Тестирование
+				межсетевого экрана</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Расширенное
+				сканирование портов</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Сетевое
+				тестирование, использование разных протоколов, TOS, фрагментация</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Обнаружение
+				MTU</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Расширенная
+				трассировка по всем поддерживаемым протоколам</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Определение
+				следов(fingerprints) ОС</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Дистанционное
+				определение время работы системы и её нагруженности</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Аудит
+				стеков TCP/IP</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>hping
+				также может быть полезен студентам, изучающим TCP/IP.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Использование
+				инструмента:</span><span lang=ru><br clear=all style='page-break-before:always'>
+			</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=336
+					id=image27.png src="Discovery1_files/image010.jpg"></span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>tcpdump исследуемого хоста:</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=228
+					id=image26.png src="Discovery1_files/image011.jpg"></span></p>
+
+		<h3><a name="_ueydvnqse6ka"></a><span lang=ru>          nslookup</span></h3>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Иногда
+				может возникнуть необходимость проверить работоспособность DNS, посмотреть как
+				быстро работает сервер,</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>увидеть
+				IP адрес и скорость его получения для определенного домена. Для этого
+				используется утилита nslookup. С помощью нее вы можете не только получить IP
+				адрес по домену, но и выполнить обратное преобразование, а также проверить
+				установлены все необходимые записи DNS.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Прямое
+				разрешение имен dns:</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=332 height=207
+					id=image4.png src="Discovery1_files/image012.png"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Обратное
+				разрешение имен dns:</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=332 height=207
+					id=image21.png src="Discovery1_files/image012.png"></span></p>
+
+		<h3 style='text-indent:.5in'><a name="_j1qg2x114zu5"></a><span lang=ru>Whois</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Whois - невероятно простое, но в тоже время весьма
+				распространенное средство, с помощью которого осуществляется запрос к
+				конкретной базе данных &quot;whois&quot; для получения информации об имени
+				домена и IP-адресе.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Например, мы хотим знать, кто является владельцем
+				IP-адреса 64.58.76.229. Для этого мы посылаем whois-запрос на whois.arin.net.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>bash% whois -h whois.arin.net 64.58.76.229</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>[whois.arin.net]</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>Exodus Communications Inc. Sterling (DC2) (NETBLK-EC17-1)
+					EC17-1</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>                                                64.58.64.0 -
+					64.58.95.255</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>Yahoo (NETBLK-EC17-1-YAHOO1)    EC17-1-YAHOO1   64.58.76.0 - 64.58.79.255</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>To single out one record, look it up with &quot;!xxx&quot;,
+					where xxx is the handle, shown in </span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>parentheses following the name, which comes first.</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>&nbsp;</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>The ARIN Registration Services Host contains ONLY Internet
+					Network Information: </span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>Networks, ASNs, and related POCs.</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>Please use the whois server at rs.internic.net for DOMAIN
+					related Information and </span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:10.0pt;
+line-height:115%'>whois.nic.mil for NIPRNET Information.</span></i></p>
+
+		<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>          </span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>Запрос к DNS-серверу
+				whois.arin.net определил пул адресов, в котором находится адрес хоста, за какой
+				компанией числится данный адрес и кто является зарегистрировавшим </span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<h3><a name="_fcvml6tn1mvw"></a><span lang=ru>          <b>Traceroute</b></span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Traceroute размечает маршрут, который проходят
+				IP-пакеты на пути от хоста до указанной цели.</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>Программа начинает работать с отсылки IP-пакета (ICMP или
+				UDP) к заданной цели, но при этом устанавливает время жизни пакета ( TTL-
+				Time-To-Live ) равным 1. Пакет исчерпывает свои ресурсы при достижении первой
+				же промежуточной точки, и маршрутизатор уведомляет нас с помощью
+				ICMP-сообщения, что время жизни пакета исчерпано, сообщая тем самым, что достигнута
+				первая промежуточная точка. Теперь мы отсылаем следующий IP-пакет к цели, но
+				теперь уже устанавливаем параметр TTL равным 2. Пакет достигает второй
+				промежуточной точки и происходит тоже самое. Продолжая наращивать параметр TTL
+				до тех пор, пока не будет достигнута цель, мы сможем узнать, какой маршрут
+				проходят пакеты на пути от нашего хоста до цели.</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>Этот инструмент может быть очень полезен при диагностике
+				проблем в сети (для определения причин выхода сети из строя или для определения
+				петель), но он также может быть использован для получения информации о
+				местонахождении тестируемой системы.</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>Ниже приведен фрагмент вывода, который можно получить,
+				используя команду traceroute</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=RU style='font-size:14.0pt;
+line-height:115%'><img border=0 width=601 height=208 id=image23.png src="Discovery1_files/image013.png"></span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>Здесь приведено несколько последних промежуточных точек
+				маршрута на пути к цели. Часть базовых хостов сети интернет используют имена,
+				отражающие их географическое положение. Вероятно, что комбинация символов SEA1
+				имеет отношение к Сиэтлу, штат Вашингтон. Это говорит о том, что данная машина,
+				возможно, расположена на северо-западе Соединенных Штатов.</span></p>
+
+		<h3 style='margin-top:12.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+0in;text-indent:.5in'><a name="_r8zcblobcy1"></a><span lang=ru>NetBIOS host
+				sweep</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Благодаря тому, что NetBIOS может использовать UDP в
+				качестве транспорта, скорость его работы позволяет обнаруживать хосты в очень
+				больших сетях.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Инструмент <i>nbtscan</i> может всего за 2 секунды
+				разрешить(определить) адреса сети вида 192.168.0.0/16, тогда как традиционное
+				TCP-сканирование займет десятки минут. Эту особенность можно использовать как
+				технику обнаружения хостов (host sweep) в очень больших сетях, о которых ничего
+				не известно, перед тем как запускать nmap. Хотя результат и не гарантирует 100%
+				обнаружения, т. к. преимущественно отвечать будут windows-хосты и то не все, он
+				всё же позволит определить, в каких примерно диапазонах находятся живые хосты.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Польза инструмента также определяется разрешением
+				адреса хоста и его NetBIOS-имени. Наличие NetBios имени может говорить о
+				работающих сервисах на базе протоколов SMB или RPC,</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=231
+					id=image6.png src="Discovery1_files/image014.png"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Можем
+				видеть получение NetBIOS имени исследуемой машины</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=139
+					id=image5.png src="Discovery1_files/image015.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Вывод
+				&quot;Permission denied&quot; говорит о запрете отправки ответов NetBIOS-имени
+				по протоколу NetBIOS.</span></p>
+
+		<h2 style='text-indent:.5in'><a name="_c24orx7khid2"></a><span lang=ru>Обнаружение
+				сервисов</span></h2>
+
+		<h3><a name="_p39qa0cnc0k6"></a><span lang=ru>          <b>Nmap</b></span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>При проведении сканирования сети и служб конкретных
+				хостов, можно выделить наиболее часто встречающиеся опции при работе с nmap:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>-sC.
+				Опция -sC или --script=default позволяет получить общую информацию об открытых
+				портах и их службах(*Только для популярных портов и служб. Определены в nmap
+				-top-ports). Информация обычного сканирования и при использовании опции -sC
+				можно рассмотреть на примере скана стандартного порта ftp-сервера 21, которая
+				позволила определить наличие функции анонимного доступа к ftp-серверу.</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>nmap -p21 192.168.56.10        </span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>PORT   STATE SERVICE</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>21/tcp open  ftp</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>MAC Address: 08:00:27:C0:F6:92 (Oracle VirtualBox virtual
+				NIC)</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>Nmap done: 1 IP address (1 host up) scanned in 0.63 seconds</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>-@-:~$ sudo nmap -sC -p21 192.168.56.10</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>PORT   STATE SERVICE</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>21/tcp open  ftp</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|_ftp-anon: Anonymous FTP login allowed (FTP code 230)</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>| ftp-syst:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|   STAT:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>| FTP server status:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               Connected to 192.168.56.1</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               Logged in as ftp</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               TYPE: ASCII</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               No session bandwidth limit</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               Session timeout in seconds is 300</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               Control connection is plain text</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               Data connections will be plain text</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|               vsFTPd 2.3.4 - secure, fast, stable</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>|_End of status</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>MAC Address: 08:00:27:C0:F6:92 (Oracle VirtualBox virtual
+				NIC)</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>Nmap done: 1 IP address (1 host up) scanned in 0.63 seconds</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>-sV.
+				Определение запущенных на открытых портах сервисов и их версий</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>-@-:~$  nmap 192.168.56.10</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>PORT      STATE    SERVICE</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>21/tcp      open       ftp</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>...</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>-@-:~$  nmap -sV 192.168.56.10</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>PORT      STATE    SERVICE VERSION</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span lang=ru style='font-size:
+8.0pt;line-height:115%'>21/tcp      open       ftp            vsftpd 2.3.4</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span lang=ru style='font-size:
+8.0pt;line-height:115%'>...</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>-O.
+				Определение ОС и её версии</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>-@-:~$ sudo nmap -O 192.168.56.10</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>...</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>Running: Linux 2.6.X</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+line-height:115%'>OS CPE: cpe:/o:linux:linux_kernel:2.6</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span lang=ru style='font-size:
+8.0pt;line-height:115%'>OS details: Linux 2.6.9 - 2.6.33</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in'><span lang=ru style='font-size:
+8.0pt;line-height:115%'>...</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>-A. Определение
+				ОС и её версии, сканирование с помощью скриптов и определение пути до
+				хоста(traceroute).</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>В зависимости от задач использования nmap учитывается
+				степень агрессивности и анонимности осуществляемых действий. К примеру, если
+				при проведении тестирования на проникновение команде атакующих необходимо
+				остаться незамеченной, обойдя системы фильтрации трафика или системы защиты от
+				вторжений, то системному администратору, проводящему ревизию работающих хостов
+				и работающих на них служб, задачи поставлены другие. Различные способы
+				использование функционала nmap определяет и его различные опции.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<h3 style='text-indent:.5in'><a name="_72v92xe6xk"></a><span lang=ru>Metasploit
+				Framework</span></h3>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Хоть
+				в основе инструмента сканирования хостов и лежит ранее упомянутый nmap, вывод
+				представляется в удобном представлении графического окружения.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Сканирование можно разделить на четыре отдельных
+				этапа:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Ping
+				сканирование. Обнаружение alive-хостов(nmap -sP)</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Сканирование
+				портов. Определение открытых портов и их служб(nmap -sV)</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Определение
+				ОС и её версии(nmap -O)</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Импорт
+				данных. Генерация отчета и представление в окне программы.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Важно
+				отметить, что могут применяться те же опции сканирования, что и при работе с
+				консольной утилитой nmap(так как само сканирование и построено на nmap)</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Кроме
+				этого могут применяться опции попытки авторизации в обнаруженных сервисах SMB.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Получаемая
+				информация по результатам сканирования:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>ip-адрес;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Hostname;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Версия
+				ОС;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Активные
+				сервисы;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Последнее
+				время обновления хоста;</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Статус
+				хоста.</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=72
+					id=image16.png src="Discovery1_files/image016.png"></span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=601 height=187
+					id=image25.png src="Discovery1_files/image017.png"></span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=211
+					id=image24.png src="Discovery1_files/image018.png"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<h3 style='text-indent:.5in'><a name="_t1nr4six6j7p"></a><span lang=ru>Burp
+				Suite</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Burp Suite — профессиональная программа для
+				тестирования, анализа и аудита веб-приложений, анализа данных которые
+				передаются между клиентом и сервером. Burp Suite — это многофункциональный
+				сквозной прокси-сервер для Linux/Windows/MacOS платформ.Программа завоевала популярность
+				по всему миру и используется пентестерами, специалистами по кибербезопасности
+				Google, Amazon, Oracle, Apple, Microsoft, Samsung.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Среди
+				наиболее полезных функциональных особенностей можно отметить перехват входящего
+				и исходящего трафика с помощью прокси-сервера Burp Suite. Это поможет
+				определить входящие запросы, а также просматривать и формировать исходящие.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Перехват трафика посредством прокси:</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=393
+					id=image8.png src="Discovery1_files/image019.png"></span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Просмотр истории запросов:</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=393
+					id=image9.png src="Discovery1_files/image020.png"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Для
+				обеспечения работы инструмента необходимо перенаправлять трафик приложения на
+				прокси-сервер Burp Suite.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<h2 align=center style='text-align:center;text-indent:.5in'><a name="_asghsdp2yta2"></a><span lang=ru>Группы
+				сервисов</span></h2>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Рассматриваются протоколы, используемые на их базе
+				сервисы и способы обнаружения работы данных сервисов.</span></p>
+
+		<h3 style='text-indent:.5in'><a name="_mwe0pp8pj7fe"></a><span lang=ru>NetBios</span></h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Приложения могут найти через NETBIOS нужные им
+				ресурсы, установить связь и послать или получить информацию. NETBIOS использует
+				для службы имён порт 137, для службы дейтаграмм — порт 138, а для сессий — порт
+				139.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Протокол NetBios позволяет узнать о сканируемом хосте
+				ряд сведений:</span></p>
+
+		<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Наличие
+				развернутых сервисов smb;</span></p>
+
+		<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Имена
+				NetBios-типов хоста;</span></p>
+
+		<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>Определение
+				принадлежности к домену.</span></p>
+
+		<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>          </span></p>
+
+		<h3 style='text-indent:.5in'><a name="_87yxxrcm1uob"></a>SMB(Server message
+			block protocol)</h3>
+
+		<p class=MsoNormal style='text-indent:.5in'><b><span lang=ru style='font-size:
+14.0pt;line-height:115%'>SMB</span></b><span lang=ru style='font-size:14.0pt;
+line-height:115%'>, или иначе</span><span lang=ru><a href="https://smb-conf.ru/cifs.html"><span style='font-size:14.0pt;line-height:
+115%;color:windowtext;text-decoration:none'> </span></a><a href="https://smb-conf.ru/cifs.html"><b><span style='font-size:14.0pt;
+line-height:115%;color:windowtext'>CIFS</span></b></a></span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>(для Windows NT 4.0) — это протокол,
+				определяющий сетевую файловую систему, ее структуру и порядок использования.
+				NetBIOS предоставляет интерфейс, через который SMB-сообщения передаются в сети,
+				он используется серверами для &quot;анонса&quot; служб в сети, и клиентами для
+				&quot;обзора&quot; этих служб.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=RU style='font-size:
+14.0pt;line-height:115%'><img border=0 width=461 height=302 id=image7.png src="Discovery1_files/image021.png"></span>
+		</p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Как и Windows, имеющая средства доступа к разделяемым
+				ресурсам из командной строки посредством SMB, у Unix есть собственные средства
+				доступа к общим ресурсам на основе протокола NetBIOS. Samba включает в себя
+				возможности и сервера и клиента для того, чтобы предоставить вам возможность
+				определить общие сетевые ресурсы таким образом, чтобы Windows-клиенты могли
+				видеть их в своем сетевом окружении и получить к ним доступ.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Работа с протоколом организуется с помощью утилиты <i>net.</i>
+				Так как утилита административная, в рамках обнаружения необходимой информации о
+				развернутых SMB сервисах интересны опции <i>&quot;net view&quot;</i> <i>.</i></span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><b><i><span lang=ru style='font-size:14.0pt;line-height:115%'>net
+						view</span></i></b><span lang=ru style='font-size:14.0pt;line-height:115%'>. net view дает
+				возможность получить
+				информацию по двум ключевым моментам. Во-первых, задав имя домена или рабочей
+				группы, можно увидеть все другие компьютеры, входящие в домен или рабочую
+				группу. Затем можно использовать второй режим работы net view, для определения
+				общих сетевых ресурсов на каждом хосте или в сети. </span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>C:\WINDOWS\Desktop&gt;net view /WORKGROUP: myworkgroup</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>Servers available in workgroup MYWORKGROUP.</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>Server name                 Remark</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>---------------------------------------------------------------------</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>\\BADMAN                    The bad machine</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>\\BROCCOLI                  Veggies are god for you</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>\\TECHSUPP                  Don't call as - we call you</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>The command was completed successfully</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>&nbsp;</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>C:\WINDOWS\Desktop&gt;net view \\badman </span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>Shared resources at \\BADMAN</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>&nbsp;</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>Sharename       Type        Comment</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>--------------------------------------------------------------------</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>CDRW        Disk</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>D       Disk</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>HALF-LIFE   Disk</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>INSTALL     Disk</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>MP3S        Disk</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><i><span style='font-size:9.0pt;
+line-height:115%'>The command was completed successfully</span></i></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><b><i><span style='font-size:14.0pt;
+line-height:115%'>&nbsp;</span></i></b></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><b><i><span lang=ru style='font-size:14.0pt;line-height:115%'>net
+						use. </span></i></b><span lang=ru style='font-size:14.0pt;line-height:115%'>Осуществляет
+				подключение к
+				удаленному ресурсу, используемому сервис на базе протокола SMB.</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><b><i><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Smbclient</span></i></b><b><span lang=ru style='font-size:14.0pt;line-height:115%'>.
+				</span></b><span lang=ru style='font-size:14.0pt;line-height:115%'>Smbclient можно представить себе, как
+				аналог FTP-клиента для доступа к общим ресурсам на основе протокола SMB.
+				Smbclient это практически тоже самое, что и <i>net use</i> под Windows.</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>Например, с помощью smbclient мы можем получить список
+				доступных общих сетевых ресурсов, обратившись к хосту либо по адресу, либо
+				указав его NetBIOS имя:</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span style='font-size:8.0pt;line-height:150%'>[-@-
+				~]$ smbclient -N -L badman -I
+				192.168.1.101</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>Added interface ip=192.168.1.101 bcast
+				192.168.1.255 nmask=255.255.255.0 </span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>Sharename       Type        Comment</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>---------       ----        --------</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>MP3S            Disk</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>HALF-LIFE       Disk</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>CDRW            Disk</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>INSTALL         Disk</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>D           Disk</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>IPS$            IPC         Remote
+				Inter Process Communications</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>Server          Comment</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>---------       ---------</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>BADMAN          The bad machine</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>Workgroup       Master</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>---------       ---------</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in;line-height:150%'><span
+				style='font-size:8.0pt;line-height:150%'>MYWORKGROUP     BADMAN</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span style='font-size:14.0pt;line-height:115%'>          </span></p>
+
+		<h3 style='text-indent:.5in'><a name="_sqos1lqyx7t9"></a>RPC</h3>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><b><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Удаленный</span></b><b><span lang=ru style='font-size:
+14.0pt;line-height:115%'> </span></b><b><span lang=ru style='font-size:14.0pt;
+line-height:115%'>вызов</span></b><b><span lang=ru style='font-size:14.0pt;
+line-height:115%'> </span></b><b><span lang=ru style='font-size:14.0pt;
+line-height:115%'>процедур</span></b><b><span style='font-size:14.0pt;
+line-height:115%'> (RPC)</span></b><span style='font-size:14.0pt;line-height:
+115%'> — </span><span lang=ru style='font-size:14.0pt;line-height:115%'>это</span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'> </span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>метод</span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'> </span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>межпроцессного</span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'> </span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>взаимодействия</span><span
+				style='font-size:14.0pt;line-height:115%'>. </span><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>Используется для клиент-серверных
+				приложений. Механизмы RPC используются, когда компьютерная программа вызывает
+				выполнение процедуры или подпрограммы в другом адресном пространстве, которое
+				закодировано как обычный вызов процедуры, при этом программист специально не
+				кодирует детали для удаленного взаимодействия. </span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in;text-indent:.5in'><span lang=ru style='font-size:14.0pt;
+line-height:115%'>Этот вызов процедуры также управляет транспортным протоколом
+				низкого уровня, таким как протокол пользовательских дейтаграмм, протокол
+				управления передачей / Интернет-протокол и т. д. Он используется для передачи
+				данных сообщения между программами. Полная форма RPC — Удаленный вызов
+				процедур.</span></p>
+
+		<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span lang=ru style='font-size:14.0pt;line-height:115%'>          Работа
+				RPC представлена ниже.</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=500 height=314
+					id=image22.png src="Discovery1_files/image022.png"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          </span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Наиболее
+				часто используемы реализации протокола RPC - OpenRPC для Unix-систем и MSRPC
+				для Windows NT-систем.</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Инструменты обнаружения RPC:</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>rpcinfo</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>nmap</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>rlogin</span></p>
+
+		<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=ru
+				style='font-size:14.0pt;line-height:115%'>●<span
+					style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+				</span></span><span lang=ru style='font-size:14.0pt;line-height:115%'>showmount</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Инстурмент
+				для поиска информации об RPС-сервисах - rpcinfo.</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Определение
+				сервисов RPC на исследуемой машине:</span></p>
+
+		<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:115%'><img border=0 width=602 height=351
+					id=image12.png src="Discovery1_files/image023.jpg"></span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Определение RPC-служб с помощью nmap: nmap -sR
+				&lt;host&gt; (!Активируется по умолчанию с опцией -sV)</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Обнаружение rhosts-сервиса удаленного предоставления
+				оболочки(аналог ssh):</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=RU style='font-size:
+14.0pt;line-height:115%'><img border=0 width=489 height=114 id=image1.png src="Discovery1_files/image024.png"></span>
+		</p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>Обнаружение экспортов NFS c помощью showmount:</span></p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=RU style='font-size:
+14.0pt;line-height:115%'><img border=0 width=464 height=62 id=image2.png src="Discovery1_files/image025.png"></span>
+		</p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=RU style='font-size:
+14.0pt;line-height:115%'><img border=0 width=432 height=55 id=image11.png src="Discovery1_files/image026.png"></span>
+		</p>
+
+		<p class=MsoNormal style='text-indent:.5in'><span lang=ru style='font-size:
+14.0pt;line-height:115%'>&nbsp;</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          </span></p>
+
+		<h2 align=center style='text-align:center'><a name="_ol0a80lnur14"></a><span lang=ru>Полезные заметки</span>
+		</h2>
+
+		<h3 style='text-indent:.5in'><a name="_vqa59u8epvlf"></a><span lang=ru>Список
+				&quot;well known&quot; сервисов</span></h3>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Файл
+				&quot;nmap-services&quot; определяет список всех известных сервисов и
+				закрепленных за ними портов(!файл располагает значениями портов по умолчанию).</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>          Ссылка
+				- https://nmap.org/book/nmap-services.html</span></p>
+
+		<p class=MsoNormal><span lang=ru style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+	</div>
+
+</body>
+
+</html>

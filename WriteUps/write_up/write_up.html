@@ -1,0 +1,175 @@
+<html>
+
+<head>
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+	<meta name=Generator content="Microsoft Word 15 (filtered)">
+	<style>
+		<!--
+		/* Font Definitions */
+		@font-face {
+			font-family: Mangal;
+			panose-1: 2 4 5 3 5 2 3 3 2 2;
+		}
+
+		@font-face {
+			font-family: "Cambria Math";
+			panose-1: 2 4 5 3 5 4 6 3 2 4;
+		}
+
+		@font-face {
+			font-family: Calibri;
+			panose-1: 2 15 5 2 2 2 4 3 2 4;
+		}
+
+		@font-face {
+			font-family: "Liberation Sans";
+		}
+
+		@font-face {
+			font-family: "Source Han Sans CN";
+			panose-1: 0 0 0 0 0 0 0 0 0 0;
+		}
+
+		@font-face {
+			font-family: "Droid Sans Devanagari";
+			panose-1: 0 0 0 0 0 0 0 0 0 0;
+		}
+
+		/* Style Definitions */
+		p.MsoNormal,
+		li.MsoNormal,
+		div.MsoNormal {
+			margin: 0in;
+			text-indent: 35.45pt;
+			line-height: 150%;
+			font-size: 14.0pt;
+			font-family: "Times New Roman", serif;
+		}
+
+		p.MsoCaption,
+		li.MsoCaption,
+		div.MsoCaption {
+			margin-top: 0in;
+			margin-right: 0in;
+			margin-bottom: 10.0pt;
+			margin-left: 0in;
+			text-indent: 35.45pt;
+			font-size: 9.0pt;
+			font-family: "Times New Roman", serif;
+			color: #44546A;
+			font-style: italic;
+		}
+
+		.MsoChpDefault {
+			font-size: 14.0pt;
+		}
+
+		@page WordSection1 {
+			size: 595.3pt 841.9pt;
+			margin: 56.7pt 42.5pt 56.7pt 85.05pt;
+		}
+
+		div.WordSection1 {
+			page: WordSection1;
+		}
+
+		/* List Definitions */
+		ol {
+			margin-bottom: 0in;
+		}
+
+		ul {
+			margin-bottom: 0in;
+		}
+		-->
+	</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+	<div class=WordSection1>
+		<h1>
+			<p class=MsoNormal style='text-indent:0in'><span lang=RU style='font-size:20.0pt;
+line-height:150%'>Разбор нестандартного задания с ресурса </span><span
+					style='font-size:18.0pt;line-height:150%'>CTFlearn. Автор: Кочева Елизавета</span></p>
+		</h1>
+
+		<p class=MsoNormal><span lang=RU>Задание:</span></p>
+
+		<p class=MsoNormal><b><span lang=RU>Путешественник во времени</span></b></p>
+
+		<p class=MsoNormal><span lang=RU>Давайте отправимся на сайт nasa.gov 31 декабря
+				1996 года. Если вы скажете мне, какой адрес электронной почты НАСА указан на их
+				веб-сайте, я дам вам 10 баллов. Формат: CTFlearn{email}</span></p>
+
+		<p class=MsoNormal><span lang=RU>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>         Итак, в самом
+				задании нам даётся подсказка: нужно использовать машину времени, чтобы
+				посмотреть на сайт 31 декабря 1996 года. Открываем поисковую строку и ищем
+				«машина обратного пути»</span></p>
+
+		<p class=MsoNormal style='text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=624 height=302 id="Рисунок 1"
+					src="write_up_files/image001.png"></span></p>
+
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Из описания обоих
+				сайтов уже можно уловить интересное название «</span><i>Wayback </i><i>Machine<span
+					lang=RU>»</span></i><span lang=RU>. Что это такое? Снова обратимся к
+				поисковику.</span></p>
+
+		<p class=MsoNormal style='text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=624 height=293 id="Рисунок 2"
+					src="write_up_files/image002.png"></span></p>
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Теперь стало ясно: вот
+				тот сервис, который поможет нам посмотреть, что же было на сайте </span>nasa<span
+				lang=RU>.</span>gov<span lang=RU> 31 декабря 1996 года!</span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Для этого находим </span>URL<span lang=RU> адрес сайта
+			</span>nasa<span lang=RU>.</span>gov<span lang=RU>,
+				копируем в буфер обмена.</span></p>
+
+		<p class=MsoNormal style='text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=624 height=148 id="Рисунок 21"
+					src="write_up_files/image003.png"></span></p>
+
+
+		<p class=MsoNormal style='text-indent:0in;line-height:normal'><span lang=RU>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Переходим на сайт </span>Wayback
+			Machine<span lang=RU> и вставляем туда полученный адрес.</span></p>
+
+		<p class=MsoNormal style='text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=616 height=169 id="Рисунок 5"
+					src="write_up_files/image004.png"></span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Сайт нам предоставляет
+				архив. Нам нужна дата 31 декабря 1996 года. Она как раз первая в архиве.
+				Кликаем.</span></p>
+
+		<p class=MsoNormal style='text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=624 height=306 id="Рисунок 3"
+					src="write_up_files/image005.png"></span></p>
+
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Вуаля! Стоит чуть
+				изучить материал на сайте и сразу находим нужную почту-флаг.</span></p>
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU><img width=624 height=293 id="Рисунок 4"
+					src="write_up_files/image006.png"></span></p>
+
+
+		<p class=MsoNormal style='text-indent:0in'><span lang=RU>Ответ</span>:
+			CTFlearn{today@nasa.gov}</p>
+
+	</div>
+
+</body>
+
+</html>

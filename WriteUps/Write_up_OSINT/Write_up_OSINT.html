@@ -1,0 +1,208 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Liberation Sans";}
+@font-face
+	{font-family:"Source Han Sans CN";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Droid Sans Devanagari";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:56.7pt 42.5pt 56.7pt 85.05pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<h1>
+<p class=MsoNormal><span lang=RU style='font-size:20.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Osint T1 InfoSec CTF 2022. Автор: Шаталов
+Вадим </span></p></h1>
+
+<p class=MsoNormal><span lang=RU><a
+href="https://infosec.ctfd.io/challenges#T1-34">InfoSec CTF 2022 (ctfd.io)</a></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=RU><img
+border=0 width=621 height=535 id="Рисунок 1"
+src="Write_up_OSINT_files/image001.png"></span></p>
+
+<p class=MsoNormal>Task.png</p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=623 height=468
+id="Рисунок 2" src="Write_up_OSINT_files/image002.jpg"></span></p>
+
+<p class=MsoNormal>1a.png</p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Из описания задания узнаём, что рядом у
+нас есть гипер/супермаркет, и видим 2 градирни. Можем предположить, что рядом
+находится АЭС.</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Сразу проверим на метаданные. Может что-то
+и найдём</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=312 height=104
+id="Рисунок 3" src="Write_up_OSINT_files/image003.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>meta.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Ничего не нашли, увы</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Изучим подробнее фотографию. Перед нами
+парковка, здание с вывеской, предположительно какой-нибудь фастфуд, и табличка,
+которую при приближении можно прочитать</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=624 height=453
+id="Рисунок 4" src="Write_up_OSINT_files/image004.png"></span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'> </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>coscto.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>“</span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>Costco</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>”
+– звучит необычно, поищем что это у нас такое.</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>“Costco Wholesale Corporation — крупнейшая
+в мире сеть складов (магазинов) самообслуживания клубного типа.” Попробуем
+сразу вписать флаг </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>flag</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;font-family:"Times New Roman",serif'>{</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>costco</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>}.
+Неверный. Продолжаем поиски.</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Сформируем запрос, основываясь на
+известных данных: рядом магазин “</span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>Costco</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>”
+и АЭС. Ищем </span><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>“Costco near nuclear plants”</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=623 height=257
+id="Рисунок 5" src="Write_up_OSINT_files/image005.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>searchcostco.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Похожи</span><span lang=RU
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'> </span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>на</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+</span><span lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>наши</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+</span><span lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>градирни</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>.
+</span><span lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Заходим</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+</span><span lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>на</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+</span><span lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>сайт</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+(</span><span lang=RU><a
+href="https://unclesamsbackyard.wordpress.com/2011/10/29/a-visit-to-the-cooling-towers-costco/"><span
+lang=EN-US>A Visit to the Cooling Towers Costco | Uncle Sam's Backyard
+(wordpress.com)</span></a></span>)</p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=569 height=628
+id="Рисунок 6" src="Write_up_OSINT_files/image006.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>postfromsite.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Из прочтённого узнаем, что нам нужен
+Spring City, Pa. и шоссе 422 на запад (хотя можно заметить название нашей АЭС,
+но так не интересно).</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=623 height=317
+id="Рисунок 7" src="Write_up_OSINT_files/image007.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>map</span><span lang=RU style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>.</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>По поиску в картах находим сначала город,
+а потом близлежащий нужный нам магазин. Как раз дорога к нему и есть наше шоссе
+422 на запад.</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=623 height=301
+id="Рисунок 8" src="Write_up_OSINT_files/image008.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>panorama.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Проверяем в панораме верность нашей
+локации. И да, мы нашли наш магазин, осталось только определить название нашего
+ТРЦ. Тут уже ничего сложного. Philadelphia Premium Outlets. Формируем флаг и
+получаем </span><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>flag</span><span lang=RU style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>{</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>Philadelphia</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>_</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>premium</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>_</span><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>outlets</span><span
+lang=RU style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif'>} 
+</span></p>
+
+<p class=MsoNormal><span lang=RU><img border=0 width=622 height=662
+id="Рисунок 9" src="Write_up_OSINT_files/image009.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>solvedtask.png</span></p>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Та-да!</span></p>
+
+</div>
+
+</body>
+
+</html>

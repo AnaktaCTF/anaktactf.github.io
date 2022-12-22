@@ -1,0 +1,671 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<style>
+		<!--
+		/* Font Definitions */
+		@font-face {
+			font-family: "Cambria Math";
+			panose-1: 2 4 5 3 5 4 6 3 2 4;
+		}
+
+		@font-face {
+			font-family: Calibri;
+			panose-1: 2 15 5 2 2 2 4 3 2 4;
+		}
+
+		@font-face {
+			font-family: "Liberation Sans";
+		}
+
+		@font-face {
+			font-family: "Source Han Sans CN";
+			panose-1: 0 0 0 0 0 0 0 0 0 0;
+		}
+
+		@font-face {
+			font-family: "Droid Sans Devanagari";
+			panose-1: 0 0 0 0 0 0 0 0 0 0;
+		}
+
+		/* Style Definitions */
+		p.MsoNormal,
+		li.MsoNormal,
+		div.MsoNormal {
+			margin-top: 0in;
+			margin-right: 0in;
+			margin-bottom: 8.0pt;
+			margin-left: 0in;
+			line-height: 107%;
+			font-size: 11.0pt;
+			font-family: "Calibri", sans-serif;
+		}
+
+		a:link,
+		span.MsoHyperlink {
+			color: #0563C1;
+			text-decoration: underline;
+		}
+
+		.MsoChpDefault {
+			font-family: "Calibri", sans-serif;
+		}
+
+		@page WordSection1 {
+			size: 595.3pt 841.9pt;
+			margin: 56.7pt 42.5pt 56.7pt 85.05pt;
+		}
+
+		div.WordSection1 {
+			page: WordSection1;
+		}
+		-->
+	</style>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-208072160-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-208072160-1');
+	</script>
+	<title>Anakta</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description"
+		content="Anakta — одна из лучших CTF-команд в мире, в которую входят участники со всего мира.">
+	<meta name="author" content="Anakta">
+	<meta name="keywords" content="anakta, кибербезопасность, CTF">
+	<meta property="og:title" content="Домашняя страница Anakta" />
+	<meta property="og:description"
+		content="Anakta — одна из лучших CTF-команд в мире, в которую входят участники со всего мира." />
+	<meta property="og:image" content="images/mpc.png" />
+	<meta property="og:site_name" content="Anakta" />
+	<meta property="og:type" content="website" />
+	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+	<link rel="icon" type="image/x-icon" href="../images/bug.png" />
+</head>
+
+<body class="is-preload">
+	<header class="header">
+		<div class="container" bis_skin_checked="1">
+			<nav class="main-menu">
+				<ul>
+					<li><a href="../index.html">Главная</a></li>
+					<li><a href="../about.html">Информация о сайте</a></li>
+					<li><a href="../about_team.html">О команде</a></li>
+					<li><a href="../for_jun.html">Курс молодого бойца</a></li>
+					<li><a href="../aticle.html">Статьи</a></li>
+					<li><a href="../writeups.html">WriteUps</a></li>
+
+				</ul>
+			</nav>
+		</div>
+
+	</header>
+	<div id="wrapper">
+
+
+
+		<div id="main">
+			<div class="inner">
+				<header>
+					<h1 style="margin-bottom: .4em;">WriteUps</h1>
+					<hr style="margin-top: .8em;">
+				</header>
+				<br>
+				<section>
+					<div class=WordSection1>
+
+<h1>
+<p class=MsoNormal><span lang=RU style='font-size:20.0pt;'>Разбор интересных задач CTFLEARN. Автор:
+		Евсеев Григорий</span></p></h1>
+
+<p class=MsoNormal><span lang=RU style='font-size:14.0pt;line-height:107%;
+net_scan_files'>Представленные ниже задачи взяты с </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>ctflearn</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>.</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>com</span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>Web</span></b><b><span lang=RU
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>:
+		</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>Inj</span></b><b><span
+			lang=RU
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>3</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>ction</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'> </span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>Time</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>I stumbled upon this website: </span><span lang=RU><span class=MsoHyperlink><span lang=EN-US
+				style='font-size:14.0pt;line-height:107%;
+net_scan_files'>http://web.ctflearn.com/web8/</span></span></span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		and I think they have the flag in their somewhere. UNION might be a helpful
+		command</span></p>
+
+<p class=MsoNormal style='text-indent:35.4pt'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>Решение.</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>В
+		тексте есть подсказка, что </span><span style='font-size:14.0pt;line-height:
+107%;net_scan_files'>UNION</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		может быть полезной командой для решения этой задачи. </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>UNION</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		позволяет выполнять несколько </span><span style='font-size:14.0pt;line-height:
+107%;net_scan_files'>SELECT</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		запросов и добавлять их результаты в изначальный запрос.</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>INFORMATION_SCHEMA
+		обеспечивает доступ к метаданным о базе данных, информации о сервере MySQL,
+		такой как название базы данных или таблицы, типе данных столбца или привилегиях
+		доступа. Попробуем</span><span lang=RU style='font-size:14.0pt;line-height:
+107%;net_scan_files'> </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>получить</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>информацию</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>из</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		INFORMATION_SCHEMA:</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>1
+		union select table_name from information_schema.tables</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Узнаем,
+		сколько столбцов(полей) в таблице с помощью </span><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>ORDER</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'> </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>BY</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>:</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         1 </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>order</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'> </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>by</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		4</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Перечисляя
+		количество столбцов, остановились на 4, так как начиная с 5 сайт перестает
+		выдавать результаты запроса. Теперь добавим еще 3 столбца к нашей изначальной
+		команде, чтобы получилось 4. Получается следующее:</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>1
+		union select table_name,2,3,4 from information_schema.tables</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Выводит
+		список с названиями таблиц. Здесь мы находим таблицу с названием «w0w_y0u_f0und_m3».
+		Дальше</span><span lang=RU style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'> </span><span lang=RU style='font-size:14.0pt;
+line-height:107%;net_scan_files'>будем</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>искать</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>в</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>ней</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>нужный</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>нам</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>столбец</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>:</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>1
+		union select column_name,2,3,4 from information_schema.columns</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Нашли
+		столбец с названием «</span><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>f</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>0</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>und</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>_</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>m</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>3».
+		Теперь получим значения данного столбца из данной таблицы:</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>1
+		union select f0und_m3,2,3,4 from w0w_y0u_f0und_m3</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Получили</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>флаг</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>:
+	</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>abctf{uni0n_1s_4_gr34t_c0mm4nd}</span>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Web</span></b><b><span lang=RU
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>:
+		</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>Calculat</span></b><b><span
+			lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>3
+		</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>M</span></b><b><span
+			lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>3</span></b>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Here! </span><span lang=RU><a
+			href="http://web.ctflearn.com/web7/"><span lang=EN-US
+				style='font-size:14.0pt;line-height:107%;net_scan_files'>http://web.ctflearn.com/web7/</span></a></span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		I forget how we were doing those calculations, but something tells me it was
+		pretty insecure.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Решение.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Мы
+		видим калькулятор. Посмотрим, как он работает. Мы вводим пример и ответ
+		выводится прямо в &lt;</span><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>body</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>&gt;. Попробуем
+		написать команду:</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         ;</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>ls</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         Нам вывелась
+		директория сайта. Здесь же мы нашли флаг:</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span style='font-size:14.0pt;line-height:107%;net_scan_files;
+'>ctf{watch_0ut_f0r_th3_m0ng00s3}</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Forensics: Bobby Toe's
+			iPad</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Here is a pic of my
+		friend Bobby Toe. while he's happy to give you his iPad, he's not as willing to
+		give you the flag. can you get it from him? here is an image of Bobby Toe: </span><span lang=RU><a
+			href="https://mega.nz/#!iWAm2KJL!2uRVDKrHOWryZkZNW6leV0sQMh-b0-AYQksa3i-A3Eg"><span lang=EN-US
+				style='font-size:14.0pt;line-height:107%;net_scan_files'>https://mega.nz/#!iWAm2KJL!2uRVDKrHOWryZkZNW6leV0sQMh-b0-AYQksa3i-A3Eg</span></a></span>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Решение.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Качаем</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>картинку</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+	</span><span lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>Проверим
+		сначала описание файла с помощью команды: </span><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>file</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         Видим,
+		что картинка формата .</span><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>png</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>. Проверим ее с
+		помощью команды: </span><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>zsteg</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		– утилиты для извлечения данных из изображений формата .</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>png</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		и .</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>bmp</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		по стеганографическим алгоритмам. </span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Команда
+		нашла в изображении информацию, находящуюся после конца файла </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>IEND</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		Найдем конец файла утилитой </span><span style='font-size:14.0pt;line-height:
+107%;net_scan_files'>bless</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		У .</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>png</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		файлов конец файла отмечен завершающим чанком </span><span style='font-size:
+14.0pt;line-height:107%;net_scan_files'>IEND</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		Находим его с помощью утилиты и видим, что </span><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>IEND</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		находится не в конце файла. Здесь же замечаем расширение </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>JFIF</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		Находим его заголовок: </span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>FF</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'> </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>D</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>8
+	</span><span style='font-size:14.0pt;line-height:107%;net_scan_files'>FF</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'> </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>E</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>0</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Это
+		начало другого файла. Разделим их. После этого снова проверим изначальное
+		изображение: </span><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>zsteg</span><span lang=RU style='font-size:14.0pt;
+line-height:107%;net_scan_files'>. На этот раз команда
+		ничего не вывела. Тогда во</span><span style='font-size:14.0pt;line-height:
+107%;net_scan_files'>c</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>пользуемся
+		командами: </span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>zsteg-mask
+		bobbytoesipad.png</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>eog
+		bobbytoesipad*</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Появилось
+		изображение с некоторым текстом: </span><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>zpv</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>_</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>tigqylhbafmeoesllpms</span>
+</p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Теперь
+		разберемся со вторым файлом, который мы нашли внутри первого. Он не открывается
+		как изображение. Попробуем восстановить его. В файле не хватало байта.
+		Восстановив его, можем открыть картинку. Видим там текст: </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>bbbabydonthurtmewhatislove</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		Возможно, это пара шифртекст-ключ. Расшифруем. Получился флаг: </span></p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-align:justify'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>you_thinkyougotskillshuh</span>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Cryptography</span></b><b><span lang=RU
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>:
+		</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>So</span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'> </span></b><b><span
+			style='font-size:14.0pt;line-height:107%;net_scan_files'>many</span></b><b><span
+			lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>
+			64</span></b><b><span style='font-size:14.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>s</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Help! My friend stole my
+		flashdrive that had the flag on it. When he gave it back the flag was changed!
+		Can you help me decrypt it? </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU><a
+			href="https://mega.nz/#!OHhUyIqA!H9WxSdG1O7eVcCm0dffggNB0-dBemSpBAXiZ0OXJnLk"><span lang=EN-US
+				style='font-size:14.0pt;line-height:107%;net_scan_files'>https://mega.nz/#!OHhUyIqA!H9WxSdG1O7eVcCm0dffggNB0-dBemSpBAXiZ0OXJnLk</span></a></span>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Решение</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span></b><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Нам
+		дан файл с очень длинным текстом. Напишем программу, которая будет декодировать
+		этот текст:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>import</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'> </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>base</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>64</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>f</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		= </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>open</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>(‘</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>flag</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>txt</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>’,
+		‘</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>r</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>’)
+		                      – открываем файл для чтения </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>res</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		= </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>f</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>read</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>()
+		                                    – читаем текст в переменную</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>while
+		True:                                       – </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>выполняем</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>бесконечно</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>         res
+		= base64.b64decode(res).decode(‘utf-8’) – </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>декодируем</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>         if</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		‘{‘ </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>in</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'> </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>res</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>:
+		                             – если находим фигурную скобку в тексте</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;text-align:justify'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>                  
+	</span><span style='font-size:14.0pt;line-height:107%;net_scan_files'>print</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>(</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>res</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>)                       –
+		выводим результат</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>                   </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>break</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		                            – прекращаем цикл принудительно</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         Результатом
+		выполнения программы будет флаг: </span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>ABCTF{pr3tty_b4s1c_r1ght?}</span>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><b><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Forensics: Seeing is
+			believing</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>My colleague's an
+		astronaut who's currently on a mission orbiting in space. Just a few hours ago,
+		unfortunately, his communication device caught fire so he's unable to report
+		back to base. I did, however, receive a strange file that I can't seem to open.
+		I think it may shed some light on his situation. Can you help me save poor boy
+		Johnny? File: </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU><a
+			href="https://mega.nz/#!LTRUTaZb!9Nh0NwDONJQiOThif3G62evP8H_W9eIJSu0PdBQWKyg"><span lang=EN-US
+				style='font-size:14.0pt;line-height:107%;net_scan_files'>https://mega.nz/#!LTRUTaZb!9Nh0NwDONJQiOThif3G62evP8H_W9eIJSu0PdBQWKyg</span></a></span>
+</p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:14.0pt;
+line-height:107%;net_scan_files'>         </span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Решение.</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.4pt'><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>Разархивируем
+		файл. Посмотрим его формат с помощью команды: </span><span style='font-size:
+14.0pt;line-height:107%;net_scan_files'>file</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		Это файл формата .</span><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>ogg</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>. Поменяем
+		расширение файла </span><span style='font-size:14.0pt;line-height:107%;
+net_scan_files'>help</span><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>.</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>me</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		на </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>help</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>ogg</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>.
+		Это звуковой файл. В нем ничего не слышно. Тогда проверим его программой </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>SonicVizualizer</span><span
+		lang=RU style='font-size:14.0pt;line-height:107%;net_scan_files'>.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         В</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+	</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>программе</span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>
+		Layer -&gt; Add Spectrogram. </span><span lang=RU style='font-size:14.0pt;
+line-height:107%;net_scan_files'>Теперь можно увидеть </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>QR</span><span lang=RU
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>-код.
+		Скриншотим и декодируем. Получается ссылка на сайт, где и указан флаг:</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span lang=RU style='font-size:
+14.0pt;line-height:107%;net_scan_files'>         </span><span
+		style='font-size:14.0pt;line-height:107%;net_scan_files'>the_flag_is{A_sP3c7r0gr4m?!}</span>
+</p>
+
+</div>
+				</section>
+			</div>
+		</div>
+
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2 style="text-transform: none;">Следите за нашим путешествием</h2>
+					<ul class="icons">
+						<li style="text-align: center;"><a href="https://ctftime.org/team/150251"
+								class="icon solid style2 fa-envelope-square fa-rotate-270" title="CTFtime"
+								target="_blank" rel="noopener noreferrer"></a>
+							<p style="margin-bottom: 0; margin-top: .4em;">CTFtime</p>
+						</li>
+						<li style="text-align: center;"><a href="https://t.me/+Jfh2PcPDCWc2YThi"
+								class="icon brands style2 fa-telegram" title="Telegram" target="_blank"
+								rel="noopener noreferrer"></a>
+							<p style="margin-bottom: 0; margin-top: .4em;">Telegram</p>
+						</li>
+						<li style="text-align: center;"><a href="https://github.com/AnaktaCTF"
+								class="icon brands style2 fa-github" title="Github" target="_blank"
+								rel="noopener noreferrer"></a>
+							<p style="margin-bottom: 0; margin-top: .4em;">Github</p>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3 style="text-transform: none;">Академический коллектив
+					</h3>
+					<h3 style="text-transform: none; "> <a style=" border: none !important;"
+							href="https://mospolytech.ru/">Московский политехнический
+							университет</a></h3>
+				</section>
+				<ul class="copyright">
+					<li>&copy; 2022. All rights reserved</li>
+					<li>Anakta</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>

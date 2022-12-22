@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Mangal;
+	panose-1:2 4 5 3 5 2 3 3 2 2;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Liberation Sans";}
+@font-face
+	{font-family:"Source Han Sans CN";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Droid Sans Devanagari";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	text-indent:35.45pt;
+	line-height:150%;
+	font-size:14.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	text-indent:35.45pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	color:#44546A;
+	font-style:italic;}
+.MsoChpDefault
+	{font-size:14.0pt;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:56.7pt 42.5pt 56.7pt 85.05pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+<h1>
+<p class=MsoNormal align=center style='text-align:center;text-indent:0in'><span
+lang=RU style='font-size:20.0pt;line-height:150%'>Разбор задачи направления </span><span
+style='font-size:20.0pt;line-height:150%'>Forensics</span><span
+style='font-size:20.0pt;line-height:150%'> </span><span style='font-size:20.0pt;
+line-height:150%'>CTFlearn</span><span lang=RU style='font-size:18.0pt;
+line-height:150%'> (для чайников).  Автор:  Кочева Елизавета</span></p></h1>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>В задании сказано
+просто найти флаг. К нему приложено фото:</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=413 height=551 id="Рисунок 2"
+src="write_up_hex_files/image001.jpg"></span></p>
+
+<p class=MsoCaption align=center style='text-align:center'><span
+lang=RU>1</span><span lang=RU> </span><span lang=RU>RubberDuck</span>.jpg</p>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>Самое первое, что мы
+можем сделать с этим фото – это скачать и открыть в специальной программе </span><i>Hex<span
+lang=RU>-редактор</span></i><span lang=RU> или любой похожей. Суть в том, что
+эта программа показывает нам файл в байтах, где мы можем отследить каждый
+символ в шестнадцатеричной системе счисления, а также альтернативное
+отображение данных как текста в кодировке ASCII.</span></p>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=624 height=334 id="Рисунок 1"
+src="write_up_hex_files/image002.png"></span></p>
+
+<p class=MsoCaption align=center style='text-align:center'><span
+lang=RU>2</span> scrin1.png</p>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>Мы знаем, что наш флаг
+должен иметь вид: </span>CTFlearn<span lang=RU>{</span>flag<span lang=RU>}.
+Изучаем колонку справа (альтернативное отображение данных), ищем текст, который
+укажет нам, что это флаг.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:0in;
+page-break-after:avoid'><span lang=RU><img width=378 height=708 id="Рисунок 5"
+src="write_up_hex_files/image003.png"></span></p>
+
+<p class=MsoCaption align=center style='text-align:center'><span
+lang=RU>3</span> scrin2.png</p>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>Флаг найден!</span></p>
+
+<p class=MsoNormal style='text-indent:0in'><span lang=RU>Ответ: </span>CTFlearn{ILoveJakarta}.</p>
+
+</div>
+
+</body>
+
+</html>
